@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rivaldi — IT Support</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --border: #1e1e2e;
+      --accent: #00e5ff;
+      --accent2: #7c3aed;
+      --text: #e8e8f0;
+      --muted: #6b6b80;
+      --card: #16161f;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Syne', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ─── GRID BG ─── */
+    .grid-bg {
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── GLOW ORBS ─── */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 { width: 500px; height: 500px; background: rgba(0,229,255,0.08); top: -150px; right: -100px; }
+    .orb-2 { width: 400px; height: 400px; background: rgba(124,58,237,0.1); bottom: 100px; left: -150px; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 60px;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.1rem;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+    .logo span { color: var(--text); }
+
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      padding: 10px 22px;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent); color: var(--bg); }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(0,229,255,0.3);
+      padding: 8px 18px;
+      border-radius: 999px;
+      margin-bottom: 36px;
+      background: rgba(0,229,255,0.05);
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.4; transform:scale(1.5); }
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -2px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    h1 .line-accent { color: var(--accent); display: block; }
+    h1 .line-dim { color: var(--muted); }
+
+    .hero-sub {
+      margin-top: 28px;
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-actions {
+      margin-top: 48px;
+      display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn-primary {
+      padding: 16px 36px;
+      background: var(--accent);
+      color: var(--bg);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 30px rgba(0,229,255,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 50px rgba(0,229,255,0.5);
+    }
+
+    .btn-ghost {
+      padding: 16px 36px;
+      background: transparent;
+      color: var(--text);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* scroll indicator */
+    .scroll-hint {
+      position: absolute; bottom: 40px;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      color: var(--muted);
+      animation: fadeIn 1s 1s ease both;
+    }
+    .scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(var(--accent), transparent);
+      animation: scrollDrop 1.5s infinite;
+    }
+    @keyframes scrollDrop {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      position: relative; z-index: 1;
+      display: flex; justify-content: center;
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      overflow: hidden;
+    }
+    .stat-item {
+      flex: 1; max-width: 220px;
+      padding: 32px 24px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      font-family: 'Space Mono', monospace;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 6px;
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      position: relative; z-index: 1;
+      padding: 100px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    .section-title em { color: var(--accent); font-style: normal; }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 480px;
+    }
+
+    /* ─── SERVICES GRID ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 60px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--card);
+      padding: 40px 36px;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,229,255,0.04), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service-card:hover { background: var(--surface); }
+    .service-card:hover::after { opacity: 1; }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ─── PROCESS ─── */
+    .process-wrap {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+    .process-step:last-child { border-bottom: none; }
+
+    .step-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--border);
+      line-height: 1;
+      transition: color 0.3s;
+    }
+    .process-step:hover .step-num { color: var(--accent); }
+
+    .step-content h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .step-content p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+
+    /* ─── CONTACT ─── */
+    .contact-wrap {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 24px; }
+
+    .contact-item {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .contact-item:hover { border-color: var(--accent); transform: translateX(4px); }
+
+    .contact-icon {
+      font-size: 1.4rem;
+      width: 44px; height: 44px;
+      background: rgba(0,229,255,0.08);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-detail { display: flex; flex-direction: column; }
+    .contact-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; }
+    .contact-value { font-size: 0.95rem; font-weight: 600; margin-top: 2px; }
+
+    /* Contact Form */
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-family: 'Space Mono', monospace;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      padding: 14px 18px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,229,255,0.08);
+    }
+    .form-group select option { background: var(--bg); }
+    .form-group textarea { min-height: 120px; }
+
+    .form-submit {
+      margin-top: 8px;
+      padding: 16px;
+      background: var(--accent);
+      color: var(--bg);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,229,255,0.3);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 40px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-left {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .footer-left strong { color: var(--accent); }
+
+    .footer-right {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      section { padding: 60px 24px; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 40px; }
+      footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+      .stats-bar { flex-wrap: wrap; }
+      .stat-item { flex: 1 1 50%; border-right: none; border-bottom: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a class="logo" href="#"><span>RVL</span>DI.ID</a>
+    <ul class="nav-links">
+      <li><a href="#services">Layanan</a></li>
+      <li><a href="#process">Proses</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+    <a class="nav-cta" href="mailto:contact@rivaldi.id">Hubungi Saya</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">IT Support & Tech Solutions</div>
+    <h1>
+      <span class="line-dim">Solusi IT</span>
+      <span class="line-accent">Cepat & Andal</span>
+    </h1>
+    <p class="hero-sub">
+      Masalah teknis bukan halangan. Saya hadir untuk memastikan sistem,
+      jaringan, dan perangkat kamu berjalan tanpa gangguan — 24/7.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#contact">Konsultasi Gratis</a>
+      <a class="btn-ghost" href="#services">Lihat Layanan</a>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      SCROLL
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Klien Dilayani</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">99%</div>
+      <div class="stat-label">Kepuasan Klien</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">&lt;2h</div>
+      <div class="stat-label">Waktu Respons</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Tahun Pengalaman</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-tag">// Layanan</div>
+    <h2 class="section-title">Apa yang Saya<br><em>Tangani</em></h2>
+    <p class="section-desc">
+      Dari troubleshooting harian hingga setup infrastruktur jaringan —
+      semua ditangani dengan profesional dan tepat waktu.
+    </p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🖥️</span>
+        <h3>Perbaikan Hardware</h3>
+        <p>Diagnosa dan perbaikan laptop, PC, printer, dan perangkat keras lainnya. Termasuk upgrade RAM, SSD, dan komponen lain.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🌐</span>
+        <h3>Setup Jaringan</h3>
+        <p>Konfigurasi WiFi, LAN, VPN, dan firewall untuk rumah maupun kantor. Termasuk optimisasi koneksi dan keamanan jaringan.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🛡️</span>
+        <h3>Keamanan Siber</h3>
+        <p>Proteksi dari malware, virus, dan ancaman digital. Audit keamanan sistem dan implementasi kebijakan backup data.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">☁️</span>
+        <h3>Cloud & Server</h3>
+        <p>Setup dan manajemen server lokal maupun cloud (AWS, GCP, VPS). Migrasi data dan konfigurasi layanan hosting.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💿</span>
+        <h3>Instalasi Software</h3>
+        <p>Instalasi OS, driver, aplikasi bisnis, dan software khusus. Termasuk aktivasi lisensi dan konfigurasi awal.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">📡</span>
+        <h3>Remote Support</h3>
+        <p>Bantuan teknis jarak jauh via TeamViewer atau AnyDesk. Masalah terselesaikan tanpa perlu kunjungan langsung.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" style="border-top: 1px solid var(--border);">
+    <div class="section-tag">// Alur Kerja</div>
+    <h2 class="section-title">Proses Kerja yang<br><em>Transparan</em></h2>
+    <p class="section-desc">
+      Tidak ada biaya kejutan. Setiap langkah dikomunikasikan dengan jelas sebelum dikerjakan.
+    </p>
+    <div class="process-wrap">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Konsultasi & Diagnosa</h3>
+          <p>Ceritakan masalah kamu melalui email atau WhatsApp. Saya akan menganalisa dan menentukan akar permasalahan secara gratis.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Estimasi & Persetujuan</h3>
+          <p>Setelah diagnosa, saya berikan estimasi biaya dan waktu pengerjaan yang transparan. Tidak ada biaya tersembunyi.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Eksekusi & Monitoring</h3>
+          <p>Pekerjaan dimulai setelah persetujuan. Saya memberikan update progress secara berkala hingga masalah terselesaikan.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3>Serah Terima & Garansi</h3>
+          <p>Setelah selesai, saya jelaskan apa yang telah dilakukan beserta garansi layanan selama 7 hari untuk masalah yang sama.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="border-top: 1px solid var(--border);">
+    <div class="section-tag">// Kontak</div>
+    <h2 class="section-title">Ada Masalah IT?<br><em>Hubungi Sekarang</em></h2>
+    <p class="section-desc">
+      Kirim pesan dan saya akan merespons dalam waktu kurang dari 2 jam di hari kerja.
+    </p>
+
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <a class="contact-item" href="mailto:contact@rivaldi.id">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-detail">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">contact@rivaldi.id</span>
+          </div>
+        </a>
+        <a class="contact-item" href="https://wa.me/628xxxxxxxxxx" target="_blank">
+          <div class="contact-icon">💬</div>
+          <div class="contact-detail">
+            <span class="contact-label">WhatsApp</span>
+            <span class="contact-value">+62 8xx-xxxx-xxxx</span>
+          </div>
+        </a>
+        <a class="contact-item" href="https://linkedin.com/in/rivaldi" target="_blank">
+          <div class="contact-icon">🔗</div>
+          <div class="contact-detail">
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">linkedin.com/in/rivaldi</span>
+          </div>
+        </a>
+        <div class="contact-item" style="cursor:default;">
+          <div class="contact-icon">📍</div>
+          <div class="contact-detail">
+            <span class="contact-label">Lokasi</span>
+            <span class="contact-value">Malang, Jawa Timur</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label>Nama Lengkap</label>
+          <input type="text" placeholder="Budi Santoso" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="budi@email.com" required />
+        </div>
+        <div class="form-group">
+          <label>Jenis Layanan</label>
+          <select>
+            <option value="">Pilih layanan...</option>
+            <option>Perbaikan Hardware</option>
+            <option>Setup Jaringan</option>
+            <option>Keamanan Siber</option>
+            <option>Cloud & Server</option>
+            <option>Instalasi Software</option>
+            <option>Remote Support</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Deskripsi Masalah</label>
+          <textarea placeholder="Ceritakan masalah yang kamu hadapi..."></textarea>
+        </div>
+        <button class="form-submit" type="submit">KIRIM PESAN →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      © 2025 <strong>rivaldi.id</strong> — IT Support & Tech Solutions
+    </div>
+    <div class="footer-right">
+      contact@rivaldi.id
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'TERKIRIM ✓';
+      btn.style.background = '#00c896';
+      setTimeout(() => {
+        btn.textContent = 'KIRIM PESAN →';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    // Intersection Observer untuk animasi masuk
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .process-step, .contact-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
