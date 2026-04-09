@@ -576,9 +576,36 @@
     </div>
 
     <script>
-        // Auto-detect API URL berdasarkan environment
-        const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-        const API_URL = isDevelopment ? 'http://localhost:5000/api' : 'https://your-backend-url.herokuapp.com/api';
+        // ============== API CONFIGURATION ==============
+        // Auto-detect environment dan API URL
+        
+        function getApiUrl() {
+          const location_hostname = window.location.hostname;
+          const location_protocol = window.location.protocol;
+          
+          // Development
+          if (location_hostname === 'localhost' || location_hostname === '127.0.0.1') {
+            return 'http://localhost:5000/api';
+          }
+          
+          // Production - Update these URLs to your backend!
+          // Option 1: Railway.app (recommended)
+          // return 'https://your-railway-app-name.up.railway.app/api';
+          
+          // Option 2: Heroku
+          // return 'https://your-heroku-app.herokuapp.com/api';
+          
+          // Option 3: Same domain (if backend on same server)
+          // return `${location_protocol}//api.rivaldi.id/api`;
+          
+          // Default fallback
+          console.warn('⚠️ API URL belum dikonfigurasi untuk production!');
+          return `${location_protocol}//localhost:5000/api`;
+        }
+        
+        const API_URL = window.location.hostname === 'localhost' 
+          ? 'http://localhost:5000/api'
+          : 'https://your-backend-url.com/api'; // UPDATE THIS
         
         let currentUser = null;
 

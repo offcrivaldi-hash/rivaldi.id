@@ -1,7 +1,55 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+/# Dependencies
+node_modules/
+package-lock.json
+
+# Database
+stories.db
+*.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build
+dist/
+build/
+.next/
+out/
+
+# Uploads
+uploads/
+
+# Temp
+.tmp/
+temp/
+
+# Production
+.cache/
 /.pnp
 .pnp.js
 

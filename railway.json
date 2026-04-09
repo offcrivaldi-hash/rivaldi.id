@@ -1,0 +1,9 @@
+# Railway Configuration
+# Automatically detected. Just push to GitHub and Railway deploys!
+
+# Environment Variables needed in Railway Dashboard:
+# NODE_ENV=production
+# PORT=5000
+
+# Optional:
+# DB_PATH=./stories.db
