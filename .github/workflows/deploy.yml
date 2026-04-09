@@ -11,11 +11,15 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Deploy to GitHub Pages
+    - name: Deploy Static Files to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./
-        exclude_assets: 'node_modules,.git,.gitignore,.github,*.json,server.js,package-lock.json'
+        exclude_assets: 'node_modules,.git,.github,server.js,stories.db,uploads,*.json,*.lock'
         keep_files: false
         cname: rivaldi.id
+        
+    - name: Deploy Backend to Railway
+      if: contains(github.event.head_commit.message, '[deploy-backend]')
+      run: echo "Backend deployment should be done via Railway dashboard"
