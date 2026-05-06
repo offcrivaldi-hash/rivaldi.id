@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rivaldi Wibowo - IT Cluster Specialist di Malang. Expertise in hotel IT infrastructure, network administration, CCTV, VPN, PMS/POS systems.">
+    <title>Rivaldi Wibowo | IT Cluster Specialist - Malang</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #0ea5e9;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --bg-card: #ffffff;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --radius: 12px;
+            --transition: 0.3s ease;
+        }
+        [data-theme="dark"] {
+            --bg: #0b1120;
+            --bg-alt: #111827;
+            --bg-card: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            transition: background var(--transition), color var(--transition);
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        a { text-decoration: none; color: inherit; transition: color var(--transition); }
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: background var(--transition);
+        }
+        [data-theme="dark"] .navbar { background: rgba(11,17,32,0.92); }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+        .logo { font-size: 1.35rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+        .nav-links a {
+            font-weight: 500; font-size: 0.95rem; color: var(--text-muted);
+            position: relative;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px; background: var(--primary);
+            transition: width var(--transition);
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .theme-btn {
+            background: none; border: none; font-size: 1.2rem; cursor: pointer;
+            padding: 6px; border-radius: 50%; transition: transform var(--transition);
+        }
+        .theme-btn:hover { transform: scale(1.15); }
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            background: none; border: none; cursor: pointer; padding: 6px;
+        }
+        .hamburger span {
+            width: 24px; height: 2.5px; background: var(--text);
+            border-radius: 2px; transition: all var(--transition);
+        }
+        /* HERO */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #0ea5e9 100%);
+            color: #fff; padding-top: 64px; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .hero-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+            align-items: center; position: relative; z-index: 1;
+        }
+        .hero-text h1 { font-size: 3rem; font-weight: 800; line-height: 1.15; margin-bottom: 8px; }
+        .hero-text .subtitle { font-size: 1.3rem; font-weight: 400; opacity: 0.9; margin-bottom: 16px; }
+        .hero-text p { font-size: 1.1rem; opacity: 0.85; margin-bottom: 32px; max-width: 520px; }
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 32px; border-radius: 10px; font-weight: 600;
+            font-size: 1rem; border: none; cursor: pointer;
+            transition: all var(--transition);
+        }
+        .btn-white { background: #fff; color: var(--primary); }
+        .btn-white:hover { background: #f0f0f0; transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4); }
+        .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+        .btn-primary { background: var(--primary); color: #fff; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .hero-avatar { display: flex; justify-content: center; }
+        .avatar-box {
+            width: 300px; height: 300px; border-radius: 50%;
+            background: rgba(255,255,255,0.1); border: 3px solid rgba(255,255,255,0.2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 7rem; backdrop-filter: blur(10px);
+        }
+        .hero-stats { display: flex; gap: 40px; margin-top: 48px; }
+        .hero-stat-num { font-size: 2rem; font-weight: 800; }
+        .hero-stat-label { font-size: 0.85rem; opacity: 0.8; }
+        /* SECTIONS */
+        section { padding: 100px 0; }
+        .section-alt { background: var(--bg-alt); }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.4rem; font-weight: 800; margin-bottom: 12px; }
+        .section-title h2 .accent { color: var(--primary); }
+        .section-title p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        /* SERVICES */
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .service-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 36px 28px;
+            transition: all var(--transition); position: relative; overflow: hidden;
+        }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0); transition: transform var(--transition);
+        }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card:hover {
+            transform: translateY(-6px); box-shadow: var(--shadow); border-color: var(--primary);
+        }
+        .service-icon {
+            width: 56px; height: 56px; border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem; margin-bottom: 20px; color: #fff;
+        }
+        .service-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+        /* EXPERIENCE */
+        .timeline { max-width: 800px; margin: 0 auto; }
+        .timeline-item { position: relative; padding-left: 40px; margin-bottom: 40px; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: 12px; top: 0; bottom: -40px;
+            width: 2px; background: var(--border);
+        }
+        .timeline-item:last-child::before { display: none; }
+        .timeline-dot {
+            position: absolute; left: 4px; top: 8px; width: 18px; height: 18px;
+            border-radius: 50%; background: var(--primary); border: 3px solid var(--bg);
+        }
+        .timeline-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            flex-wrap: wrap; gap: 8px; margin-bottom: 12px;
+        }
+        .timeline-role { font-size: 1.2rem; font-weight: 700; }
+        .timeline-company { color: var(--primary); font-weight: 600; }
+        .timeline-period { color: var(--text-muted); font-size: 0.9rem; }
+        .timeline-desc { color: var(--text-muted); margin-bottom: 16px; }
+        .timeline-list { list-style: none; }
+        .timeline-list li {
+            position: relative; padding-left: 20px; margin-bottom: 8px;
+            color: var(--text-muted); font-size: 0.95rem;
+        }
+        .timeline-list li::before { content: '▸'; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+        /* SKILLS */
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .skills-categories { display: grid; gap: 20px; }
+        .skill-category {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 24px;
+        }
+        .skill-category h4 { font-size: 1rem; font-weight: 700; margin-bottom: 12px; color: var(--primary); }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .skill-tag {
+            padding: 6px 14px; background: var(--bg-alt); border: 1px solid var(--border);
+            border-radius: 20px; font-size: 0.85rem; font-weight: 500; color: var(--text-muted);
+        }
+        .skills-bars { display: grid; gap: 24px; }
+        .skill-item label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 8px; }
+        .skill-bar { height: 10px; background: var(--border); border-radius: 10px; overflow: hidden; }
+        .skill-fill {
+            height: 100%; border-radius: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 1.2s ease; width: 0;
+        }
+        /* ABOUT */
+        .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: center; }
+        .about-img {
+            width: 100%; aspect-ratio: 1; max-width: 320px;
+            border-radius: 20px; background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 8rem; color: #fff; margin: 0 auto;
+        }
+        .about-text h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 16px; }
+        .about-text p { color: var(--text-muted); margin-bottom: 16px; }
+        .about-details { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .about-detail {
+            padding: 16px; background: var(--bg-alt); border-radius: 10px; border: 1px solid var(--border);
+        }
+        .about-detail-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .about-detail-value { font-weight: 700; font-size: 1.05rem; margin-top: 4px; }
+        /* JOB REQUEST */
+        .form-wrapper {
+            max-width: 800px; margin: 0 auto; background: var(--bg-card);
+            border: 1px solid var(--border); border-radius: 16px;
+            padding: 48px; box-shadow: var(--shadow);
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { margin-bottom: 24px; }
+        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 14px 16px; border: 1px solid var(--border);
+            border-radius: 10px; background: var(--bg); color: var(--text);
+            font-size: 1rem; font-family: inherit; transition: all var(--transition);
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none; border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .urgency-options { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .urgency-option { position: relative; }
+        .urgency-option input { display: none; }
+        .urgency-option label {
+            display: flex; flex-direction: column; align-items: center;
+            padding: 16px 12px; border: 2px solid var(--border); border-radius: 10px;
+            cursor: pointer; transition: all var(--transition); text-align: center;
+        }
+        .urgency-option input:checked + label { border-color: var(--primary); background: rgba(37,99,235,0.08); }
+        .urgency-emoji { font-size: 1.5rem; margin-bottom: 4px; }
+        .urgency-text { font-size: 0.85rem; font-weight: 600; }
+        .form-submit { text-align: center; margin-top: 8px; }
+        .form-submit .btn { min-width: 200px; justify-content: center; }
+        .form-success { display: none; text-align: center; padding: 40px; }
+        .form-success.show { display: block; }
+        .form-success-icon { font-size: 4rem; margin-bottom: 16px; }
+        .form-success h3 { font-size: 1.5rem; margin-bottom: 8px; color: #22c55e; }
+        .form-success p { color: var(--text-muted); }
+        /* TESTIMONIALS */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .testimonial-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 32px; transition: all var(--transition);
+        }
+        .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+        .testimonial-stars { color: #f59e0b; margin-bottom: 16px; font-size: 1.1rem; }
+        .testimonial-text { color: var(--text-muted); font-style: italic; margin-bottom: 20px; line-height: 1.8; }
+        .testimonial-author { display: flex; align-items: center; gap: 12px; }
+        .testimonial-avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 700;
+        }
+        .testimonial-name { font-weight: 600; }
+        .testimonial-role { font-size: 0.85rem; color: var(--text-muted); }
+        /* CONTACT */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .contact-cards { display: grid; gap: 20px; }
+        .contact-card {
+            display: flex; align-items: center; gap: 16px; padding: 24px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); transition: all var(--transition);
+        }
+        .contact-card:hover { border-color: var(--primary); box-shadow: var(--shadow); }
+        .contact-card-icon {
+            width: 50px; height: 50px; border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; color: #fff; flex-shrink: 0;
+        }
+        .contact-card h4 { font-weight: 600; margin-bottom: 4px; }
+        .contact-card p { color: var(--text-muted); font-size: 0.95rem; }
+        .contact-map {
+            background: var(--bg-alt); border: 1px solid var(--border);
+            border-radius: var(--radius); display: flex; align-items: center;
+            justify-content: center; min-height: 300px; font-size: 4rem; color: var(--text-muted);
+        }
+        /* FOOTER */
+        .footer { background: var(--bg-alt); border-top: 1px solid var(--border); padding: 48px 0 24px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand .logo { font-size: 1.5rem; display: inline-block; margin-bottom: 12px; }
+        .footer-brand p { color: var(--text-muted); max-width: 300px; }
+        .footer-col h4 { font-weight: 700; margin-bottom: 16px; }
+        .footer-col ul { list-style: none; display: grid; gap: 10px; }
+        .footer-col a { color: var(--text-muted); }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-bottom {
+            text-align: center; padding-top: 24px; border-top: 1px solid var(--border);
+            color: var(--text-muted); font-size: 0.9rem;
+        }
+        /* ANIMATIONS */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-text p { margin: 0 auto 32px; }
+            .hero-btns { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-avatar { order: -1; }
+            .avatar-box { width: 240px; height: 240px; font-size: 5rem; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .skills-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-img { margin-bottom: 32px; }
+            .testimonials-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-brand p { margin: 0 auto; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed; top: 64px; right: -100%;
+                width: 260px; height: calc(100vh - 64px);
+                background: var(--bg); flex-direction: column;
+                padding: 32px; gap: 24px; border-left: 1px solid var(--border);
+                transition: right var(--transition);
+            }
+            .nav-links.active { right: 0; }
+            .hamburger { display: flex; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-stats { gap: 24px; }
+            .hero-stat-num { font-size: 1.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .urgency-options { grid-template-columns: repeat(2, 1fr); }
+            .form-wrapper { padding: 28px 20px; }
+            .section-title h2 { font-size: 1.8rem; }
+            .about-details { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .hero-text h1 { font-size: 1.8rem; }
+            .hero-btns { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .avatar-box { width: 180px; height: 180px; font-size: 5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">RIVAL<span>DI</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#experience">Pengalaman</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#job">Minta Bantuan</a></li>
+                <li><a href="#contact">Kontak</a></li>
+                <li><button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">🌙</button></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Rivaldi Wibowo</h1>
+                <div class="subtitle">IT Cluster Specialist | Hotel IT Infrastructure & Operations</div>
+                <p>7+ tahun pengalaman mengelola infrastruktur IT multi-properti di sektor hospitality. Spesialis dalam network administration, server management, cybersecurity, CCTV, dan deployment PMS/POS.</p>
+                <div class="hero-btns">
+                    <a href="#job" class="btn btn-white">Minta Bantuan</a>
+                    <a href="#services" class="btn btn-outline">Lihat Layanan</a>
+                </div>
+                <div class="hero-stats">
+                    <div><div class="hero-stat-num">7+</div><div class="hero-stat-label">Tahun Pengalaman</div></div>
+                    <div><div class="hero-stat-num">500+</div><div class="hero-stat-label">Project Selesai</div></div>
+                    <div><div class="hero-stat-num">98%</div><div class="hero-stat-label">Uptime Jaringan</div></div>
+                </div>
+            </div>
+            <div class="hero-avatar"><div class="avatar-box">👨‍💻</div></div>
+        </div>
+    </section>
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Layanan <span class="accent">IT Support</span></h2>
+                <p>Solusi IT profesional untuk kebutuhan teknis Anda</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔧</div>
+                    <h3>Service Komputer</h3>
+                    <p>Troubleshooting hardware & software PC/laptop. Diagnosa kerusakan, perbaikan, upgrade komponen, dan preventive maintenance.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🖥️</div>
+                    <h3>Setup Infrastruktur</h3>
+                    <p>Setup jaringan LAN/WAN, server, workstation, dan infrastruktur IT. Termasuk Windows Server, Active Directory, dan backup solutions.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">💿</div>
+                    <h3>Install OS & Software</h3>
+                    <p>Instalasi Windows/Linux, office suite, driver, antivirus. Termasuk deployment PMS dan POS untuk bisnis hospitality.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📹</div>
+                    <h3>CCTV</h3>
+                    <p>Instalasi & konfigurasi CCTV untuk keamanan rumah, kantor, atau bisnis. Setup remote monitoring via smartphone.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📡</div>
+                    <h3>Router & Network</h3>
+                    <p>Setup & konfigurasi router (MikroTik, Ruijie), access point, switch, dan manajemen jaringan untuk performa optimal.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Firewall & Security</h3>
+                    <p>Konfigurasi firewall, VPN site-to-site, network security, vulnerability assessment, dan pengembangan IT policy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- EXPERIENCE -->
+    <section class="section-alt" id="experience">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Pengalaman <span class="accent">Kerja</span></h2>
+                <p>Track record profesional di bidang IT infrastructure & operations</p>
+            </div>
+            <div class="timeline fade-in">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-role">IT Cluster Specialist</div>
+                            <div class="timeline-company">PT. Citihub Hotel Management</div>
+                        </div>
+                        <div class="timeline-period">Mar 2018 – Present</div>
+                    </div>
+                    <p class="timeline-desc">Mengelola infrastruktur IT dan operasional untuk multiple hotel branches di seluruh Indonesia. Surabaya (2018–2022) → Malang (2022–Present).</p>
+                    <ul class="timeline-list">
+                        <li>Administer Windows Server: Active Directory, file services, backup; support Linux & macOS</li>
+                        <li>Deploy, maintain, optimize PMS & POS systems untuk front-office, F&B, dan finance</li>
+                        <li>Design & manage VPN solutions (site-to-site & remote access), WiFi, firewall (MikroTik & Ruijie)</li>
+                        <li>Install & manage CCTV surveillance systems dengan remote access monitoring</li>
+                        <li>IT security audits, cybersecurity best practices, IT policy development</li>
+                        <li>Standardized IT SOPs untuk troubleshooting, preventive maintenance, disaster recovery</li>
+                        <li>Network device upgrade projects: MikroTik, Ruijie — improving performance & scalability</li>
+                        <li>Site-to-site VPN solutions dengan enhanced stability monitoring</li>
+                        <li>Migrasi legacy systems ke modern, scalable platforms</li>
+                        <li>Integrasi POS systems dengan hotel IT infrastructure</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Keahlian <span class="accent">Teknis</span></h2>
+                <p>Technology stack dan tools yang dikuasai untuk memberikan solusi IT terbaik</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skills-categories fade-in">
+                    <div class="skill-category">
+                        <h4>Networking</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">TCP/IP</span>
+                            <span class="skill-tag">LAN/WAN</span>
+                            <span class="skill-tag">DNS</span>
+                            <span class="skill-tag">DDNS</span>
+                            <span class="skill-tag">VPN Site-to-Site</span>
+                            <span class="skill-tag">MikroTik</span>
+                            <span class="skill-tag">Ruijie</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Servers & OS</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Windows Server</span>
+                            <span class="skill-tag">Active Directory</span>
+                            <span class="skill-tag">DNS/DHCP</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">macOS</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Databases</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">SQL Server</span>
+                            <span class="skill-tag">Firebird</span>
+                            <span class="skill-tag">FlameRobin</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Hospitality & Security</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">PMS</span>
+                            <span class="skill-tag">POS</span>
+                            <span class="skill-tag">CCTV</span>
+                            <span class="skill-tag">Firewall</span>
+                            <span class="skill-tag">IT SOP</span>
+                            <span class="skill-tag">Vulnerability Assessment</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-bars fade-in">
+                    <div class="skill-item">
+                        <label><span>Networking & Infrastructure</span><span>95%</span></label>
+                        <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <label><span>Windows Server & AD</span><span>92%</span></label>
+                        <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <label><span>CCTV & Surveillance</span><span>90%</span></label>
+                        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <label><span>Firewall & VPN Security</span><span>88%</span></label>
+                        <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <label><span>PMS & POS Systems</span><span>85%</span></label>
+                        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <label><span>Database Management</span><span>80%</span></label>
+                        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ABOUT -->
+    <section class="section-alt" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img fade-in">👨‍🔧</div>
+                <div class="about-text fade-in">
+                    <h3>Tentang Rivaldi</h3>
+                    <p>IT Cluster Specialist dengan pengalaman 7+ tahun mengelola infrastruktur teknologi multi-properti di sektor hospitality. Berbasis di Malang, Jawa Timur.</p>
+                    <p>Berpengalaman dalam network administration, server management, cybersecurity, dan deployment Property Management Systems (PMS) serta POS platforms. Memiliki track record mendukung operasional hotel di multiple branches dengan minimal downtime, prosedur terstandarisasi, dan solusi IT yang scalable.</p>
+                    <div class="about-details">
+                        <div class="about-detail">
+                            <div class="about-detail-label">Lokasi</div>
+                            <div class="about-detail-value">Malang, Jawa Timur</div>
+                        </div>
+                        <div class="about-detail">
+                            <div class="about-detail-label">Pengalaman</div>
+                            <div class="about-detail-value">7+ Tahun</div>
+                        </div>
+                        <div class="about-detail">
+                            <div class="about-detail-label">Pendidikan</div>
+                            <div class="about-detail-value">S1 Teknik Komputer, Brawijaya University (2013–2017)</div>
+                        </div>
+                        <div class="about-detail">
+                            <div class="about-detail-label">Bahasa</div>
+                            <div class="about-detail-value">Indonesia (Native), English (Professional)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- JOB REQUEST -->
+    <section id="job">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Minta <span class="accent">Bantuan</span></h2>
+                <p>Isi form di bawah. Klik kirim, otomatis terhubung ke WhatsApp saya.</p>
+            </div>
+            <div class="form-wrapper fade-in">
+                <form id="jobForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" placeholder="Nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="whatsapp">No. WhatsApp</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" placeholder="08xxxxxxxxxx" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company">Nama Perusahaan / Instansi</label>
+                            <input type="text" id="company" name="company" placeholder="Opsional">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Jenis Layanan</label>
+                            <select id="service" name="service" required>
+                                <option value="" disabled selected>Pilih layanan</option>
+                                <option value="Service Komputer">🔧 Service Komputer</option>
+                                <option value="Setup Infrastruktur">🖥️ Setup Infrastruktur</option>
+                                <option value="Install OS & Software">💿 Install OS & Software</option>
+                                <option value="CCTV">📹 CCTV</option>
+                                <option value="Router & Network">📡 Router & Network</option>
+                                <option value="Firewall & Security">🛡️ Firewall & Security</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="budget">Perkiraan Budget</label>
+                            <select id="budget" name="budget">
+                                <option value="" disabled selected>Pilih range</option>
+                                <option value="Rp 0 - 500.000">Rp 0 - 500.000</option>
+                                <option value="Rp 500rb - 1jt">Rp 500.000 - 1.000.000</option>
+                                <option value="Rp 1jt - 3jt">Rp 1.000.000 - 3.000.000</option>
+                                <option value="Rp 3jt - 5jt">Rp 3.000.000 - 5.000.000</option>
+                                <option value="Rp 5jt+">Rp 5.000.000+</option>
+                                <option value="Diskusi Dulu">Diskusi Dulu</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Urgency</label>
+                            <div class="urgency-options">
+                                <div class="urgency-option">
+                                    <input type="radio" name="urgency" id="urg-low" value="Low">
+                                    <label for="urg-low"><span class="urgency-emoji">🟢</span><span class="urgency-text">Low</span></label>
+                                </div>
+                                <div class="urgency-option">
+                                    <input type="radio" name="urgency" id="urg-medium" value="Medium" checked>
+                                    <label for="urg-medium"><span class="urgency-emoji">🟡</span><span class="urgency-text">Medium</span></label>
+                                </div>
+                                <div class="urgency-option">
+                                    <input type="radio" name="urgency" id="urg-high" value="High">
+                                    <label for="urg-high"><span class="urgency-emoji">🟠</span><span class="urgency-text">High</span></label>
+                                </div>
+                                <div class="urgency-option">
+                                    <input type="radio" name="urgency" id="urg-critical" value="Critical">
+                                    <label for="urg-critical"><span class="urgency-emoji">🔴</span><span class="urgency-text">Critical</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Deskripsi Masalah / Kebutuhan</label>
+                        <textarea id="description" name="description" placeholder="Jelaskan detail masalah atau kebutuhan Anda..." required></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">💬 Kirim via WhatsApp</button>
+                    </div>
+                </form>
+                <div class="form-success" id="formSuccess">
+                    <div class="form-success-icon">✅</div>
+                    <h3>Mengalihkan ke WhatsApp...</h3>
+                    <p>Jika tidak otomatis terbuka, klik <a href="https://wa.me/6285735038001" target="_blank" style="color:var(--primary);font-weight:600;">di sini</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- TESTIMONIALS -->
+    <section class="section-alt" id="testimonials">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Apa Kata <span class="accent">Client</span></h2>
+                <p>Testimoni dari client yang telah menggunakan jasa IT support</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Pak Rivaldi sangat profesional. Jaringan kantor kami yang bermasalah langsung diatasi. VPN antar cabang stabil dan remote access aman."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">B</div>
+                        <div><div class="testimonial-name">Budi Santoso</div><div class="testimonial-role">Manager, PT Teknologi Malang</div></div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Pasang CCTV 8 kamera untuk rumah, hasilnya rapi dan bisa dipantau dari HP. Harganya juga fair untuk kualitas kerjaan yang diberikan."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">S</div>
+                        <div><div class="testimonial-name">Sari Dewi</div><div class="testimonial-role">Pemilik Rumah, Malang</div></div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Server down di hari Sabtu, hubungi Pak Rivaldi langsung ditangani remote. Data aman semua. Sangat responsif dan kompeten."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">A</div>
+                        <div><div class="testimonial-name">Ahmad Fauzi</div><div class="testimonial-role">Owner, CV Maju Jaya</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Hubungi <span class="accent">Saya</span></h2>
+                <p>Siap membantu kebutuhan IT Anda. Hubungi melalui channel berikut:</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-cards fade-in">
+                    <div class="contact-card">
+                        <div class="contact-card-icon">📧</div>
+                        <div><h4>Email</h4><p>contact@rivaldi.id</p></div>
+                    </div>
+                    <a href="https://wa.me/6285735038001" target="_blank" class="contact-card">
+                        <div class="contact-card-icon">📱</div>
+                        <div><h4>WhatsApp</h4><p>+62 857-3503-8001</p></div>
+                    </a>
+                    <div class="contact-card">
+                        <div class="contact-card-icon">📍</div>
+                        <div><h4>Lokasi</h4><p>Malang, Jawa Timur</p></div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon">⏰</div>
+                        <div><h4>Jam Kerja</h4><p>Senin - Sabtu, 08:00 - 21:00 WIB</p></div>
+                    </div>
+                </div>
+                <div class="contact-map fade-in"><span>🗺️</span></div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">RIVAL<span>DI</span></a>
+                    <p>IT Cluster Specialist di Malang. 7+ tahun pengalaman di bidang IT infrastructure, networking, security, dan hospitality systems.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="#services">Service Komputer</a></li>
+                        <li><a href="#services">Setup Infrastruktur</a></li>
+                        <li><a href="#services">Install OS</a></li>
+                        <li><a href="#services">CCTV</a></li>
+                        <li><a href="#services">Router & Network</a></li>
+                        <li><a href="#services">Firewall & Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#experience">Pengalaman</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#job">Minta Bantuan</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Rivaldi Wibowo. All rights reserved. | IT Support Malang</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Theme Toggle
+        const themeBtn = document.getElementById('themeBtn');
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+        themeBtn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateThemeIcon(next);
+        });
+        function updateThemeIcon(theme) { themeBtn.textContent = theme === 'dark' ? '☀️' : '🌙'; }
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); hamburger.classList.toggle('active'); });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => { navLinks.classList.remove('active'); hamburger.classList.remove('active'); });
+        });
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active'); hamburger.classList.remove('active');
+            }
+        });
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        // Skill Bars
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.skill-fill').forEach(fill => {
+                        fill.style.width = fill.dataset.width + '%';
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.skills-bars').forEach(el => skillObserver.observe(el));
+        // Active Nav
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => { if (window.scrollY >= section.offsetTop - 100) { current = section.getAttribute('id'); } });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) { link.classList.add('active'); }
+            });
+        });
+        // Navbar Shadow
+        window.addEventListener('scroll', () => {
+            document.querySelector('.navbar').style.boxShadow = window.scrollY > 20 ? '0 4px 20px rgba(0,0,0,0.1)' : 'none';
+        });
+        // ========== WHATSAPP AUTO-OPEN ON FORM SUBMIT ==========
+        document.getElementById('jobForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const company = document.getElementById('company').value || '-';
+            const service = document.getElementById('service').value;
+            const urgency = document.querySelector('input[name="urgency"]:checked')?.value || 'Medium';
+            const budget = document.getElementById('budget').value || '-';
+            const description = document.getElementById('description').value;
+            const message = `Halo Pak Rivaldi, saya ingin minta bantuan IT support:
+👤 Nama: ${name}
+🏢 Perusahaan: ${company}
+📱 WA: ${whatsapp}
+🔧 Layanan: ${service}
+⚡ Urgency: ${urgency}
+💰 Budget: ${budget}
+📝 Deskripsi:
+${description}`;
+            // Save to localStorage as backup
+            const submissions = JSON.parse(localStorage.getItem('jobRequests') || '[]');
+            submissions.push({ name, whatsapp, company, service, urgency, budget, description, timestamp: new Date().toISOString() });
+            localStorage.setItem('jobRequests', JSON.stringify(submissions));
+            // Open WhatsApp
+            const waUrl = `https://wa.me/6285735038001?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, '_blank');
+            // Show success
+            document.getElementById('jobForm').style.display = 'none';
+            document.getElementById('formSuccess').classList.add('show');
+            setTimeout(() => {
+                document.getElementById('jobForm').style.display = 'block';
+                document.getElementById('formSuccess').classList.remove('show');
+                document.getElementById('jobForm').reset();
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
