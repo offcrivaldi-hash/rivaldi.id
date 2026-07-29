@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rivaldi Wibowo - IT Cluster Specialist di Malang. Expertise in hotel IT infrastructure, network administration, CCTV, VPN, PMS/POS systems.">
-    <title>⚔️ Rivaldi Wibowo | Hero of IT - Malang</title>
+    <meta name="description" content="Galeh Fatma - Full Stack Developer & Network Engineer. Expert in Laravel, CodeIgniter, Flutter, MikroTik, and Radius Server.">
+    <title>⚔️ Galeh Fatma | Full Stack Developer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;700&display=swap');
-        
+
         :root {
             --zelda-green: #006400;
             --zelda-green-light: #228B22;
@@ -25,7 +25,7 @@
             --radius: 12px;
             --transition: 0.3s ease;
         }
-        
+
         [data-theme="light"] {
             --bg: #F1F8E9;
             --bg-alt: #FFFFFF;
@@ -35,7 +35,7 @@
             --border: #4CAF50;
             --shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
-        
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
@@ -44,14 +44,14 @@
             color: var(--text);
             line-height: 1.7;
             transition: background var(--transition), color var(--transition);
-            background-image: 
+            background-image:
                 radial-gradient(circle at 20% 50%, rgba(0,100,0,0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 50%, rgba(255,215,0,0.05) 0%, transparent 50%);
         }
-        
+
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         a { text-decoration: none; color: inherit; transition: color var(--transition); }
-        
+
         .navbar {
             position: fixed; top: 0; left: 0; right: 0;
             background: rgba(10,31,10,0.95);
@@ -60,21 +60,21 @@
             border-bottom: 2px solid var(--zelda-gold);
             transition: background var(--transition);
         }
-        
+
         .navbar .container {
             display: flex; justify-content: space-between; align-items: center;
             padding: 16px 24px;
         }
-        
+
         .logo {
             font-family: 'MedievalSharp', cursive;
             font-size: 1.5rem;
             color: var(--zelda-gold);
             display: flex; align-items: center; gap: 8px;
         }
-        
+
         .logo::before { content: '⚔️'; font-size: 1.2em; }
-        
+
         .nav-links { display: flex; gap: 32px; list-style: none; }
         .nav-links a {
             font-weight: 500; font-size: 0.95rem;
@@ -89,7 +89,7 @@
             transform: scaleX(0); transition: transform var(--transition);
         }
         .nav-links a:hover::after { transform: scaleX(1); }
-        
+
         .theme-toggle {
             background: none; border: 2px solid var(--zelda-gold);
             color: var(--zelda-gold); padding: 8px 16px;
@@ -101,7 +101,7 @@
             background: var(--zelda-gold);
             color: var(--bg);
         }
-        
+
         .hero {
             min-height: 100vh;
             display: flex; align-items: center;
@@ -109,7 +109,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero::before {
             content: '🔺';
             position: absolute;
@@ -120,9 +120,9 @@
             opacity: 0.05;
             color: var(--zelda-gold);
         }
-        
+
         .hero-content { max-width: 700px; position: relative; z-index: 1; }
-        
+
         .hero-badge {
             display: inline-flex; align-items: center; gap: 8px;
             background: rgba(255,215,0,0.1);
@@ -133,7 +133,7 @@
             color: var(--zelda-gold);
             margin-bottom: 24px;
         }
-        
+
         .hero h1 {
             font-family: 'MedievalSharp', cursive;
             font-size: 3.5rem;
@@ -141,17 +141,17 @@
             margin-bottom: 20px;
             color: var(--text);
         }
-        
+
         .hero h1 span { color: var(--zelda-gold); }
-        
+
         .hero p {
             font-size: 1.2rem;
             color: var(--text-muted);
             margin-bottom: 32px;
         }
-        
+
         .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-        
+
         .btn {
             display: inline-flex; align-items: center; gap: 8px;
             padding: 14px 32px;
@@ -161,7 +161,7 @@
             transition: all var(--transition);
             font-family: inherit;
         }
-        
+
         .btn-primary {
             background: linear-gradient(135deg, var(--zelda-green), var(--zelda-green-light));
             color: white;
@@ -171,7 +171,7 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0,100,0,0.4);
         }
-        
+
         .btn-secondary {
             background: transparent;
             border: 2px solid var(--zelda-gold);
@@ -180,10 +180,10 @@
         .btn-secondary:hover {
             background: rgba(255,215,0,0.1);
         }
-        
+
         .section { padding: 100px 0; }
         .section-alt { background: var(--bg-alt); }
-        
+
         .section-title {
             font-family: 'MedievalSharp', cursive;
             font-size: 2.5rem;
@@ -191,20 +191,48 @@
             margin-bottom: 16px;
             color: var(--text);
         }
-        
+
         .section-subtitle {
             text-align: center;
             color: var(--text-muted);
             margin-bottom: 60px;
             font-size: 1.1rem;
         }
-        
+
+        .about-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-avatar {
+            flex-shrink: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--zelda-gold);
+            object-fit: cover;
+            box-shadow: 0 0 30px rgba(255,215,0,0.2);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            text-align: left;
+        }
+
+        .about-text strong {
+            color: var(--zelda-gold);
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 24px;
         }
-        
+
         .skill-card {
             background: var(--bg-card);
             border: 2px solid var(--border);
@@ -214,7 +242,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .skill-card::before {
             content: '';
             position: absolute;
@@ -222,36 +250,79 @@
             width: 100%; height: 4px;
             background: linear-gradient(90deg, var(--zelda-green), var(--zelda-gold));
         }
-        
+
         .skill-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow);
             border-color: var(--zelda-gold);
         }
-        
+
         .skill-icon {
             font-size: 2.5rem;
             margin-bottom: 16px;
             display: block;
         }
-        
+
         .skill-card h3 {
             font-size: 1.3rem;
             margin-bottom: 12px;
             color: var(--zelda-gold);
         }
-        
+
         .skill-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
         }
-        
+
+        .featured-tag {
+            display: inline-block;
+            background: rgba(255,215,0,0.15);
+            color: var(--zelda-gold);
+            font-size: 0.75rem;
+            padding: 2px 10px;
+            border-radius: 100px;
+            margin-bottom: 8px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+
+        .project-tags span {
+            background: rgba(0,100,0,0.3);
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 2px 10px;
+            border-radius: 100px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .project-links a {
+            color: var(--zelda-gold);
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .project-links a:hover {
+            color: var(--text);
+        }
+
         .experience-timeline {
             position: relative;
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .experience-timeline::before {
             content: '';
             position: absolute;
@@ -261,7 +332,7 @@
             height: 100%;
             background: var(--zelda-gold);
         }
-        
+
         .timeline-item {
             position: relative;
             padding: 24px;
@@ -271,32 +342,32 @@
             border-radius: var(--radius);
             width: 45%;
         }
-        
+
         .timeline-item:nth-child(odd) { margin-right: auto; }
         .timeline-item:nth-child(even) { margin-left: auto; }
-        
+
         .timeline-item::before {
             content: '⚔️';
             position: absolute;
             top: 24px;
             font-size: 1.5rem;
         }
-        
+
         .timeline-item:nth-child(odd)::before { right: -60px; }
         .timeline-item:nth-child(even)::before { left: -60px; }
-        
+
         .timeline-item h3 { color: var(--zelda-gold); margin-bottom: 8px; }
         .timeline-item .date { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 8px; }
         .timeline-item p { color: var(--text-muted); }
-        
+
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 24px;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
-        
+
         .contact-card {
             background: var(--bg-card);
             border: 2px solid var(--border);
@@ -305,41 +376,41 @@
             text-align: center;
             transition: all var(--transition);
         }
-        
+
         .contact-card:hover {
             border-color: var(--zelda-gold);
             transform: translateY(-3px);
         }
-        
+
         .contact-icon {
             font-size: 2.5rem;
             margin-bottom: 16px;
             display: block;
         }
-        
+
         .contact-card h3 {
             color: var(--zelda-gold);
             margin-bottom: 8px;
         }
-        
+
         .contact-card a {
             color: var(--text-muted);
             word-break: break-all;
         }
         .contact-card a:hover { color: var(--zelda-gold); }
-        
+
         .footer {
             background: var(--bg-alt);
             border-top: 2px solid var(--zelda-gold);
             padding: 40px 0;
             text-align: center;
         }
-        
+
         .footer p {
             color: var(--text-muted);
             font-size: 0.9rem;
         }
-        
+
         .triforce {
             text-align: center;
             font-size: 3rem;
@@ -347,10 +418,27 @@
             margin: 20px 0;
             opacity: 0.3;
         }
-        
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 16px;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            transition: color var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--zelda-gold);
+        }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.2rem; }
             .section-title { font-size: 2rem; }
             .experience-timeline::before { left: 20px; }
             .timeline-item {
@@ -363,16 +451,23 @@
                 left: -40px;
                 right: auto;
             }
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-text { text-align: center; }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">Rivaldi.W</a>
+            <a href="#" class="logo">Galeh.F</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -382,12 +477,44 @@
 
     <section id="home" class="hero">
         <div class="container hero-content">
-            <div class="hero-badge">🛡️ IT Cluster Specialist</div>
-            <h1>Hello, I'm <span>Rivaldi Wibowo</span></h1>
-            <p>Guardian of IT Infrastructure in Malang. Expert in hotel IT systems, network administration, CCTV, VPN, and PMS/POS systems. Keeping the kingdom's technology secure and efficient.</p>
+            <div class="hero-badge">🛡️ Full Stack Developer & Network Engineer</div>
+            <h1>Hello, I'm <span>Galeh Fatma</span></h1>
+            <p>Software Engineer & Network Integrator based in East Java, Indonesia. Specializing in building high-performance backend systems, modern mobile apps, and complex network infrastructure.</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">📜 Contact Me</a>
-                <a href="#skills" class="btn btn-secondary">⚔️ View Skills</a>
+                <a href="#projects" class="btn btn-secondary">⚔️ View Quests</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">🧙 About Me</h2>
+            <p class="section-subtitle">The Hero Behind the Code</p>
+            <div class="about-wrapper">
+                <img
+                    src="https://avatars.githubusercontent.com/u/12293751?v=4"
+                    alt="Galeh Fatma"
+                    class="about-avatar"
+                >
+                <div class="about-text">
+                    <p>
+                        Halo, saya <strong>Galeh Fatma Eko Ardiansa</strong>, seorang
+                        <strong>Software Engineer & Network Integrator</strong>.
+                        Berbasis di <strong>Jawa Timur</strong>, saya memiliki spesialisasi
+                        dalam membangun sistem backend berkinerja tinggi
+                        (<strong>Laravel</strong>, <strong>CodeIgniter</strong>, <strong>Yii2</strong>)
+                        dan aplikasi mobile modern (<strong>Flutter</strong>).
+                    </p>
+                    <br>
+                    <p>
+                        Rekam jejak saya mencakup integrasi jaringan kompleks seperti
+                        <strong>MikroTik</strong> dengan <strong>Radius Server</strong>
+                        hingga arsitektur <strong>RESTful API</strong>.
+                        Saya sangat menghargai <em>clean code</em>, skalabilitas sistem,
+                        dan pengalaman interaktif yang mutakhir.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -395,90 +522,163 @@
     <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title">🗡️ Skills & Abilities</h2>
-            <p class="section-subtitle">Mastering the arts of IT infrastructure and systems</p>
+            <p class="section-subtitle">Mastering the arts of software & network engineering</p>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <span class="skill-icon">🏨</span>
-                    <h3>Hotel IT Infrastructure</h3>
-                    <p>Designing and maintaining hotel technology ecosystems including PMS, POS, and guest services integration.</p>
+                    <span class="skill-icon">⚡</span>
+                    <h3>Backend Development</h3>
+                    <p>Expert in Laravel, CodeIgniter, Yii2 with RESTful API architecture, authentication handling, and modular MVC design.</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">📱</span>
+                    <h3>Mobile Development</h3>
+                    <p>Building cross-platform mobile applications with Flutter, delivering modern and responsive user experiences.</p>
                 </div>
                 <div class="skill-card">
                     <span class="skill-icon">🌐</span>
-                    <h3>Network Administration</h3>
-                    <p>Enterprise-grade network design, configuration, and troubleshooting with Mikrotik, Cisco, and VLAN management.</p>
+                    <h3>Network Integration</h3>
+                    <p>MikroTik RouterOS configuration, RADIUS server integration for high-throughput voucher-based client validation.</p>
                 </div>
                 <div class="skill-card">
-                    <span class="skill-icon">📹</span>
-                    <h3>CCTV & Security</h3>
-                    <p>IP Camera systems, NVR/DVR configuration, and comprehensive surveillance solutions for hospitality.</p>
+                    <span class="skill-icon">🐳</span>
+                    <h3>DevOps & Systems</h3>
+                    <p>Docker containerization, Ubuntu Server administration, enterprise virtualization, and CI/CD pipelines.</p>
                 </div>
                 <div class="skill-card">
-                    <span class="skill-icon">🔒</span>
-                    <h3>VPN & Security</h3>
-                    <p>Secure tunnel implementation, firewall configuration, and network security protocols for enterprise environments.</p>
-                </div>
-                <div class="skill-card">
-                    <span class="skill-icon">💻</span>
-                    <h3>PMS & POS Systems</h3>
-                    <p>Expert in hotel management software including Opera, Fidelio, and integrated point-of-sale solutions.</p>
+                    <span class="skill-icon">🗄️</span>
+                    <h3>Database Management</h3>
+                    <p>Designing and optimizing relational databases, complex queries, and data migration strategies.</p>
                 </div>
                 <div class="skill-card">
                     <span class="skill-icon">🔧</span>
-                    <h3>System Administration</h3>
-                    <p>Linux/Windows server management, virtualization, backup solutions, and IT support operations.</p>
+                    <h3>System Integration</h3>
+                    <p>Integrating diverse systems including PMS, POS, and enterprise software with custom middleware solutions.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="section section-alt">
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">🏰 Epic Quests</h2>
+            <p class="section-subtitle">Legendary projects completed on the journey</p>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <span class="featured-tag">⭐ Featured</span>
+                    <span class="skill-icon">📶</span>
+                    <h3>Cybernetwork MikroTik Hotspots</h3>
+                    <p>High-performance integration of MikroTik RouterOS with localized RADIUS server for high-throughput voucher-based client validation.</p>
+                    <div class="project-tags">
+                        <span>Ubuntu Server</span>
+                        <span>MikroTik</span>
+                        <span>Radius</span>
+                        <span>PHP</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/gfea/Cybernetwork-Hotspot" target="_blank">🔗 GitHub</a>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <span class="featured-tag">⭐ Featured</span>
+                    <span class="skill-icon">🔌</span>
+                    <h3>Master CI REST API Boilerplate</h3>
+                    <p>Optimized modular directory guide and authentication-handling backend template for secure RESTful APIs via CodeIgniter.</p>
+                    <div class="project-tags">
+                        <span>PHP</span>
+                        <span>CodeIgniter</span>
+                        <span>RESTful API</span>
+                        <span>MVC</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/gfea/master_api_ci" target="_blank">🔗 GitHub</a>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <span class="featured-tag">⭐ Featured</span>
+                    <span class="skill-icon">👤</span>
+                    <h3>Galeh Portfolio Website</h3>
+                    <p>Personal web profile portfolio built with modular clean semantic templates, responsive grids, and clean interaction designs.</p>
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Responsive</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/gfea/porto" target="_blank">🔗 GitHub</a>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">🐳</span>
+                    <h3>Docker Helpdesk Configuration</h3>
+                    <p>Enterprise virtualization setup and custom Docker configurations mapping database attachments to helpdesk ticket support instances.</p>
+                    <div class="project-tags">
+                        <span>Docker</span>
+                        <span>DevOps</span>
+                        <span>SysAdmin</span>
+                        <span>Containerization</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/gfea/conf_docker_helpdesk" target="_blank">🔗 GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
         <div class="container">
             <h2 class="section-title">🏰 Quest History</h2>
-            <p class="section-subtitle">Journey through the IT kingdom</p>
+            <p class="section-subtitle">Journey through the software & network kingdom</p>
             <div class="experience-timeline">
                 <div class="timeline-item">
-                    <h3>IT Cluster Specialist</h3>
+                    <h3>Full Stack Developer & Network Engineer</h3>
+                    <div class="date">Present</div>
+                    <p>Leading development and network infrastructure at PT. Sariguna Primatirta, Tbk. Building scalable backend systems and maintaining enterprise network operations.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Web Developer</h3>
+                    <div class="date">2021 - Present</div>
+                    <p>Specializing in PHP frameworks (Laravel, CodeIgniter, Yii2) and RESTful API development. Building high-performance backend systems with clean code architecture.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Mobile Developer</h3>
                     <div class="date">2022 - Present</div>
-                    <p>Leading IT infrastructure operations for hotel clusters in Malang. Managing multi-property technology ecosystems.</p>
+                    <p>Developing cross-platform mobile applications using Flutter. Creating modern, responsive, and interactive mobile experiences.</p>
                 </div>
                 <div class="timeline-item">
-                    <h3>Network Administrator</h3>
-                    <div class="date">2020 - 2022</div>
-                    <p>Designed and implemented enterprise network solutions for hospitality industry with 99.9% uptime.</p>
-                </div>
-                <div class="timeline-item">
-                    <h3>IT Support Specialist</h3>
-                    <div class="date">2018 - 2020</div>
-                    <p>Provided comprehensive IT support for hotel operations including PMS troubleshooting and CCTV maintenance.</p>
+                    <h3>Network Integrator</h3>
+                    <div class="date">2020 - Present</div>
+                    <p>Integrating complex network infrastructure including MikroTik RouterOS with RADIUS servers for enterprise-grade authentication systems.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section">
+    <section id="contact" class="section section-alt">
         <div class="container">
             <h2 class="section-title">📨 Send a Messenger</h2>
-            <p class="section-subtitle">Get in touch for IT quests and collaborations</p>
+            <p class="section-subtitle">Get in touch for quests and collaborations</p>
             <div class="contact-grid">
                 <div class="contact-card">
                     <span class="contact-icon">📧</span>
                     <h3>Email</h3>
-                    <a href="mailto:offcrivaldi@gmail.com">offcrivaldi@gmail.com</a>
+                    <a href="mailto:galeh.fatma@gmail.com">galeh.fatma@gmail.com</a>
                 </div>
                 <div class="contact-card">
-                    <span class="contact-icon">📱</span>
-                    <h3>WhatsApp</h3>
-                    <a href="https://wa.me/6281234567890">+62 812-3456-7890</a>
-                </div>
-                <div class="contact-card">
-                    <span class="contact-icon">📍</span>
-                    <h3>Location</h3>
-                    <p>Malang, East Java, Indonesia</p>
+                    <span class="contact-icon">🐙</span>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/gfea" target="_blank">github.com/gfea</a>
                 </div>
                 <div class="contact-card">
                     <span class="contact-icon">💼</span>
                     <h3>LinkedIn</h3>
-                    <a href="https://linkedin.com/in/rivaldi-wibowo">linkedin.com/in/rivaldi-wibowo</a>
+                    <a href="https://www.linkedin.com/in/galehfatmaea/" target="_blank">linkedin.com/in/galehfatmaea</a>
+                </div>
+                <div class="contact-card">
+                    <span class="contact-icon">📍</span>
+                    <h3>Location</h3>
+                    <p>East Java, Indonesia</p>
                 </div>
             </div>
         </div>
@@ -487,8 +687,14 @@
     <footer class="footer">
         <div class="container">
             <div class="triforce">🔺🔺🔺</div>
-            <p>© 2026 Rivaldi Wibowo • Built with ⚔️ and 🛡️</p>
-            <p style="margin-top: 8px; font-size: 0.8rem;">"It's dangerous to go alone! Take this." - But really, let's work together.</p>
+            <div class="social-links">
+                <a href="https://github.com/gfea" target="_blank" title="GitHub">🐙</a>
+                <a href="https://www.linkedin.com/in/galehfatmaea/" target="_blank" title="LinkedIn">💼</a>
+                <a href="https://twitter.com/galehfea" target="_blank" title="Twitter">🐦</a>
+                <a href="https://www.instagram.com/galehfea" target="_blank" title="Instagram">📷</a>
+            </div>
+            <p>© 2026 Galeh Fatma Eko Ardiansa • Built with ⚔️ and 🛡️</p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">"It's dangerous to go alone! Take this." - Let's build something legendary together.</p>
         </div>
     </footer>
 
@@ -498,7 +704,7 @@
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? null : 'light';
             const button = document.querySelector('.theme-toggle');
-            
+
             if (newTheme) {
                 body.setAttribute('data-theme', newTheme);
                 button.textContent = '🌙 Dark';
