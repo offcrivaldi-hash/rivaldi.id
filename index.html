@@ -194,6 +194,30 @@
         .creative-card .arrow { display: flex; justify-content: flex-end; margin-top: 32px; }
         .creative-card .arrow div { width: 48px; height: 48px; border-radius: 50%; background: #fff; color: var(--accent); display: flex; align-items: center; justify-content: center; transition: transform 0.3s; }
 
+        /* Experience */
+        .experience-section { padding-top: 0; }
+        .exp-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media(min-width: 1024px){ .exp-grid{ grid-template-columns: 1.6fr 0.9fr; } }
+        .exp-main { padding: 28px; }
+        @media(min-width:640px){ .exp-main{ padding: 36px; } }
+        .exp-header { display:flex; flex-wrap:wrap; gap: 12px; align-items:flex-start; justify-content:space-between; margin-bottom: 18px; }
+        .exp-role h3{ font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; text-transform: uppercase; letter-spacing: -0.5px; line-height:1.1; }
+        .exp-role p{ font-family: var(--font-mono); font-size:0.72rem; font-weight:700; letter-spacing:0.6px; text-transform:uppercase; opacity:0.6; margin-top:6px; }
+        .exp-badge{ font-family: var(--font-mono); font-size:0.62rem; font-weight:800; letter-spacing:0.8px; text-transform:uppercase; padding:7px 12px; border-radius: var(--radius-pill); background: var(--accent); color:#fff; white-space:nowrap; }
+        .exp-list{ list-style:none; display:grid; gap:12px; margin-top: 18px; }
+        .exp-list li{ display:flex; gap:12px; font-size:0.92rem; line-height:1.65; color:var(--text-muted); }
+        .exp-list li::before{ content:""; width:8px; height:8px; border-radius:50%; background: var(--accent); flex-shrink:0; margin-top:8px; }
+        .exp-metrics{ display:grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 22px; padding-top: 22px; border-top:1px solid var(--border-subtle); }
+        .exp-metrics div strong{ font-family: var(--font-display); font-weight:800; font-size:1.35rem; display:block; line-height:1; }
+        .exp-metrics div span{ font-family: var(--font-mono); font-size:0.6rem; font-weight:700; letter-spacing:0.6px; text-transform:uppercase; opacity:0.6; }
+        .edu-card{ padding: 28px; display:flex; flex-direction:column; justify-content:space-between; }
+        @media(min-width:640px){ .edu-card{ padding: 32px; } }
+        .edu-card h4{ font-family: var(--font-display); font-weight:800; font-size:1.1rem; text-transform:uppercase; letter-spacing:-0.3px; }
+        .edu-card .edu-meta{ font-family: var(--font-mono); font-size:0.68rem; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; opacity:0.6; margin-top:6px; }
+        .edu-card ul{ list-style:none; margin-top:16px; display:grid; gap:8px; }
+        .edu-card ul li{ font-size:0.85rem; line-height:1.6; color:var(--text-muted); display:flex; gap:8px; }
+        .edu-card ul li::before{ content:"—"; opacity:0.4; }
+
         /* Expertise */
         .expertise-section { padding-top: 0; }
         .expertise-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
@@ -301,6 +325,7 @@
             <a href="#" class="logo">Rivaldi.<span>W</span> <small>IT Cluster Specialist</small></a>
             <ul class="nav-links">
                 <li><a href="#about">Tentang</a></li>
+                <li><a href="#experience">Pengalaman</a></li>
                 <li><a href="#expertise">Keahlian</a></li>
                 <li><a href="#projects">Proyek</a></li>
                 <li><a href="#contact" class="nav-cta">Hubungi Saya</a></li>
@@ -403,6 +428,61 @@
             </div>
         </section>
 
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title-lg">Pengalaman</h2>
+                    <p class="section-title-sm">Perjalanan profesional di industri hospitality — dari operasional harian hingga standardisasi cluster</p>
+                </div>
+                <div class="exp-grid reveal">
+                    <div class="card-subtle exp-main">
+                        <div class="exp-header">
+                            <div class="exp-role">
+                                <h3>IT Leader — Citihub Hotel Management</h3>
+                                <p>Malang & Surabaya, Jawa Timur • Mar 2018 — Sekarang • Full-time</p>
+                            </div>
+                            <span class="exp-badge">7+ Tahun • Multi-Property</span>
+                        </div>
+                        <ul class="exp-list">
+                            <li>Memimpin operasional IT di beberapa lokasi hotel — memastikan infrastruktur andal, performa jaringan optimal, dan konektivitas aman antar properti.</li>
+                            <li>Mengelola & meng-upgrade sistem enterprise: VPN site-to-site, WiFi access points, Windows Server, database & layanan cloud.</li>
+                            <li>Mengarahkan deployment hardware, ekspansi jaringan & peningkatan sistem CCTV untuk keamanan dan efisiensi operasional.</li>
+                            <li>Melakukan audit keamanan IT, identifikasi kerentanan, dan penerapan best practice proteksi data.</li>
+                            <li>Menyusun dan memelihara kebijakan, SOP & dokumentasi IT untuk standardisasi operasional seluruh properti.</li>
+                            <li>Berkoordinasi dengan vendor untuk pengadaan hardware, upgrade infrastruktur & service agreement, serta memberikan advanced troubleshooting untuk meminimalkan downtime.</li>
+                        </ul>
+                        <div class="exp-metrics">
+                            <div><strong>Cluster</strong><span>Malang — Surabaya</span></div>
+                            <div><strong>Uptime</strong><span>Fokus 24/7 Ops</span></div>
+                            <div><strong>Scope</strong><span>Network • Server • CCTV</span></div>
+                        </div>
+                    </div>
+                    <div class="card-subtle edu-card">
+                        <div>
+                            <h4>Perangkat & Teknologi</h4>
+                            <p class="edu-meta">Yang dikelola sehari-hari di cluster</p>
+                            <p style="font-size:0.88rem; line-height:1.65; color:var(--text-muted); margin-top:10px;">Fokus pada implementasi dan operasional — bukan sekadar teori. Berikut ekosistem yang saya pegang langsung di lapangan:</p>
+                            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;">
+                                <span style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; padding:7px 10px; border-radius:8px; background:var(--bg-subtle); border:1px solid var(--border-subtle);">MikroTik</span>
+                                <span style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; padding:7px 10px; border-radius:8px; background:var(--bg-subtle); border:1px solid var(--border-subtle);">Ruijie</span>
+                                <span style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; padding:7px 10px; border-radius:8px; background:var(--bg-subtle); border:1px solid var(--border-subtle);">TP-Link</span>
+                                <span style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; padding:7px 10px; border-radius:8px; background:var(--bg-subtle); border:1px solid var(--border-subtle);">Hikvision</span>
+                                <span style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; padding:7px 10px; border-radius:8px; background:var(--bg-subtle); border:1px solid var(--border-subtle);">Dahua / Alhua</span>
+                                <span style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; padding:7px 10px; border-radius:8px; background:var(--bg-subtle); border:1px solid var(--border-subtle);">Ezviz</span>
+                                <span style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; padding:7px 10px; border-radius:8px; background:var(--bg-subtle); border:1px solid var(--border-subtle);">Videotron</span>
+                                <span style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; padding:7px 10px; border-radius:8px; background:var(--bg-subtle); border:1px solid var(--border-subtle);">Windows Server</span>
+                                <span style="font-family:var(--font-mono); font-size:0.62rem; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; padding:7px 10px; border-radius:8px; background:var(--bg-subtle); border:1px solid var(--border-subtle);">NVR / DVR</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-subtle);">
+                            <div style="font-family: var(--font-mono); font-size:0.62rem; font-weight:800; letter-spacing:0.8px; text-transform:uppercase; opacity:0.5; margin-bottom:8px;">Catatan</div>
+                            <p style="font-size:0.85rem; line-height:1.6; color:var(--text-muted);">Tidak menonjolkan sertifikasi — kekuatan di implementasi lapangan, troubleshooting, dan standardisasi antar properti.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="expertise" class="expertise-section">
             <div class="container">
                 <div class="section-header reveal">
@@ -475,9 +555,9 @@
                             </div>
                         </div>
                         <div class="project-body">
-                            <div class="category">Network & Infrastructure</div>
-                            <h3>Hotel Cluster Network</h3>
-                            <p class="desc">Desain backbone enterprise untuk multi-property: VLAN segmentasi (Guest, Staff, IoT, CCTV), redundant gateway & load balancing.</p>
+                            <div class="category">Network • Case Study • Citihub Cluster</div>
+                            <h3>Hotel Cluster Network Upgrade</h3>
+                            <p class="desc">Upgrade perangkat jaringan di lingkungan hotel: backbone enterprise dengan VLAN (Guest/Staff/IoT/CCTV), redundant gateway & load balancing, plus SOP & dokumentasi. Dampak: konektivitas lebih stabil, troubleshooting terpusat, dan siap untuk ekspansi properti.</p>
                             <div class="tags"><span>MikroTik</span><span>Cisco</span><span>VLAN</span><span>Failover</span></div>
                         </div>
                     </div>
@@ -490,10 +570,10 @@
                             </div>
                         </div>
                         <div class="project-body">
-                            <div class="category">Security</div>
-                            <h3>CCTV & Surveillance</h3>
-                            <p class="desc">IP Camera & NVR terpusat, retensi terstruktur, dan akses monitoring aman untuk manajemen & security.</p>
-                            <div class="tags"><span>IP Camera</span><span>NVR</span><span>Hikvision</span><span>Monitoring</span></div>
+                            <div class="category">Security • Case Study</div>
+                            <h3>CCTV & Surveillance Terpusat</h3>
+                            <p class="desc">Standardisasi CCTV multi-properti dengan Hikvision, Dahua/Alhua & Ezviz + NVR/DVR terpusat. Jaringan CCTV di-segmentasi via MikroTik/Ruijie, retensi & hak akses ditata. Dampak: monitoring terpusat, keamanan meningkat, dan maintenance lebih efisien.</p>
+                            <div class="tags"><span>Hikvision</span><span>Dahua</span><span>Ezviz</span><span>NVR</span></div>
                         </div>
                     </div>
 
