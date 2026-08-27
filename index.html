@@ -3,40 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rivaldi Wibowo - IT Cluster Specialist di Malang. Expertise in hotel IT infrastructure, network administration, CCTV, VPN, PMS/POS systems.">
-    <title>Rivaldi Wibowo | Hero of IT - Malang</title>
+    <title>Rivaldi Wibowo — IT Cluster Specialist | Hospitality Technology — Malang</title>
+    <meta name="description" content="Rivaldi Wibowo — IT Cluster Specialist berbasis di Malang. Spesialis infrastruktur IT perhotelan: Network Enterprise, CCTV & Surveillance, Server, VPN, PMS/POS Integration & Keamanan Sistem untuk cluster hotel.">
+    <meta name="author" content="Rivaldi Wibowo">
+    <meta name="keywords" content="IT Cluster Specialist Malang, IT Hotel Malang, Network Administrator, MikroTik, Cisco, CCTV Hotel, PMS POS Integration, VPN, Server Management">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rivaldi.id/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rivaldi.id/">
+    <meta property="og:title" content="Rivaldi Wibowo — IT Cluster Specialist | Hospitality Technology">
+    <meta property="og:description" content="Spesialis infrastruktur IT perhotelan di Malang. Network Enterprise, CCTV, Server, VPN & Integrasi PMS/POS untuk operasional hotel yang andal.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/271122148?v=4">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Rivaldi Wibowo — IT Cluster Specialist">
+    <meta property="twitter:description" content="Hospitality IT Infrastructure • Network • Security • Server Management • Malang">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Rivaldi Wibowo",
+      "jobTitle": "IT Cluster Specialist",
+      "url": "https://rivaldi.id",
+      "image": "https://avatars.githubusercontent.com/u/271122148?v=4",
+      "address": { "@type": "PostalAddress", "addressLocality": "Malang", "addressRegion": "Jawa Timur", "addressCountry": "ID" },
+      "email": "mailto:offcrivaldi@gmail.com",
+      "sameAs": ["https://github.com/offcrivaldi-hash","https://linkedin.com/in/rivaldiwe","https://wa.me/6283849918685"],
+      "knowsAbout": ["Hotel IT Infrastructure","Network Administration","CCTV","VPN","PMS","POS","MikroTik","Cisco"]
+    }
+    </script>
     <style>
         :root {
             --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
             --font-mono: "JetBrains Mono", ui-monospace, monospace;
             --font-display: "Syne", sans-serif;
-            --accent: #caff00;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
             --bg: #f3f3f3;
             --bg-subtle: #00000008;
+            --bg-card: #ffffff;
             --border-subtle: #00000014;
+            --border-strong: #0000001a;
             --text: #111;
-            --text-muted: #555;
-            --card-bg: transparent;
+            --text-muted: #5a5a5a;
+            --text-faint: #888;
             --radius-2xl: 16px;
             --radius-3xl: 24px;
+            --radius-pill: 999px;
             --transition: 0.3s ease;
+            --shadow: 0 8px 30px rgba(0,0,0,0.06);
         }
-
         .dark {
             --bg: #030303;
             --bg-alt: #0a0a0a;
             --bg-subtle: #ffffff08;
+            --bg-card: #0f0f0f;
             --border-subtle: #ffffff14;
+            --border-strong: #ffffff1a;
             --text: #f3f3f3;
-            --text-muted: #888;
-            --card-bg: transparent;
+            --text-muted: #9a9a9a;
+            --text-faint: #666;
+            --shadow: 0 8px 30px rgba(0,0,0,0.4);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
         body {
             font-family: var(--font-sans);
             background: var(--bg);
@@ -44,837 +76,215 @@
             line-height: 1.6;
             transition: background var(--transition), color var(--transition);
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
-
-        ::selection { background: var(--accent); color: #000; }
-
+        a { text-decoration: none; color: inherit; }
+        ::selection { background: var(--accent); color: #fff; }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
         @media (min-width: 640px) { .container { padding: 0 24px; } }
         @media (min-width: 1024px) { .container { padding: 0 32px; } }
 
-        .fixed-bg {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-            background: var(--bg);
-        }
-
-        .fixed-bg .grid-overlay {
-            position: absolute;
-            inset: 0;
-            opacity: 0.07;
-            background-image: linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px);
-            background-size: 56px 56px;
-            color: #000;
-        }
-
-        .dark .fixed-bg .grid-overlay {
-            opacity: 0.04;
-            color: #fff;
-        }
-
-        .fixed-bg .orb-1 {
-            position: absolute;
-            top: -80px;
-            left: -96px;
-            width: 288px;
-            height: 288px;
-            border-radius: 50%;
-            background: var(--accent);
-            opacity: 0.25;
-            filter: blur(120px);
-        }
-
-        .dark .fixed-bg .orb-1 { opacity: 0.1; }
-
-        .fixed-bg .orb-2 {
-            position: absolute;
-            bottom: -96px;
-            right: -96px;
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            background: #a855f7;
-            opacity: 0.15;
-            filter: blur(120px);
-        }
-
-        .dark .fixed-bg .orb-2 { opacity: 0.08; }
-
-        .fixed-bg .noise {
-            position: absolute;
-            inset: 0;
-            opacity: 0.2;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        }
-
+        /* Background */
+        .fixed-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; background: var(--bg); }
+        .fixed-bg .grid-overlay { position: absolute; inset: 0; opacity: 0.07; background-image: linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px); background-size: 56px 56px; color: #000; }
+        .dark .fixed-bg .grid-overlay { opacity: 0.04; color: #fff; }
+        .fixed-bg .orb-1 { position: absolute; top: -80px; left: -96px; width: 288px; height: 288px; border-radius: 50%; background: var(--accent); opacity: 0.12; filter: blur(120px); }
+        .dark .fixed-bg .orb-1 { opacity: 0.08; }
+        .fixed-bg .orb-2 { position: absolute; bottom: -96px; right: -96px; width: 320px; height: 320px; border-radius: 50%; background: #6366f1; opacity: 0.08; filter: blur(120px); }
+        .dark .fixed-bg .orb-2 { opacity: 0.06; }
+        .fixed-bg .noise { position: absolute; inset: 0; opacity: 0.2; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
         .dark .fixed-bg .noise { opacity: 0.05; }
 
-        .navbar {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            background: rgba(243,243,243,0.8);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-subtle);
-            transition: background var(--transition);
-        }
-
-        .dark .navbar { background: rgba(3,3,3,0.8); }
-
-        .navbar .inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 24px;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--text);
-            letter-spacing: -0.5px;
-        }
-
-        .logo span { color: var(--accent); }
-
-        .nav-links { display: flex; gap: 28px; list-style: none; }
-        .nav-links a {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            transition: color var(--transition);
-        }
+        /* Navbar */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(243,243,243,0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-subtle); transition: background var(--transition); }
+        .dark .navbar { background: rgba(3,3,3,0.82); }
+        .navbar .inner { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; max-width: 1280px; margin: 0 auto; }
+        .logo { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: var(--text); letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--accent); text-shadow: 0 0 0 transparent; }
+        .logo small { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.5; margin-left: 4px; display: none; }
+        @media(min-width:640px){ .logo small{display:inline;} }
+        .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+        .nav-links a { font-size: 0.84rem; font-weight: 500; color: var(--text-muted); transition: color var(--transition); position: relative; }
         .nav-links a:hover { color: var(--text); }
+        .nav-links a.active { color: var(--text); }
+        .nav-cta { background: var(--text); color: var(--bg) !important; padding: 8px 18px; border-radius: var(--radius-pill); font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+        .dark .nav-cta { background: #fff; color: #000 !important; }
+        .theme-btn { background: var(--text); color: var(--bg); border: 1px solid transparent; padding: 7px 16px; border-radius: var(--radius-pill); cursor: pointer; font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.5px; transition: all 0.2s; }
+        .dark .theme-btn { background: transparent; color: var(--text); border-color: var(--border-strong); }
+        .theme-btn:hover { opacity: 0.85; transform: translateY(-1px); }
 
-        .theme-btn {
-            background: var(--text);
-            color: var(--bg);
-            border: none;
-            padding: 6px 18px;
-            border-radius: 100px;
-            cursor: pointer;
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: all 0.2s;
-        }
-        .theme-btn:hover { opacity: 0.8; }
-
-        .hero {
-            position: relative;
-            z-index: 1;
-            min-height: 95vh;
-            display: flex;
-            align-items: center;
-            padding: 96px 0 56px;
-        }
-
-        .hero .inner {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        @media (min-width: 1024px) {
-            .hero .inner {
-                grid-template-columns: 7fr 5fr;
-                gap: 32px;
-            }
-        }
-
+        /* Hero */
+        .hero { position: relative; z-index: 1; min-height: 92vh; display: flex; align-items: center; padding: 96px 0 48px; }
+        .hero .inner { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+        @media (min-width: 1024px) { .hero .inner { grid-template-columns: 7fr 5fr; gap: 40px; } }
         .hero-left { position: relative; z-index: 10; }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 6px 16px;
-            border-radius: 100px;
-            border: 1px solid var(--border-subtle);
-            background: var(--bg-subtle);
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent);
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        .hero h1 {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 3.35rem;
-            line-height: 0.9;
-            letter-spacing: -2px;
-            text-transform: uppercase;
-            margin-bottom: 28px;
-            max-width: 100%;
-        }
-
+        .hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: var(--radius-pill); border: 1px solid var(--border-subtle); background: var(--bg-card); box-shadow: var(--shadow); font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; margin-bottom: 22px; }
+        .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,0.2); animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%,100%{ opacity:1; transform: scale(1);} 50%{ opacity:0.7; transform: scale(0.9);} }
+        .hero h1 { font-family: var(--font-display); font-weight: 800; font-size: 3.35rem; line-height: 0.88; letter-spacing: -2.5px; text-transform: uppercase; margin-bottom: 14px; }
         @media (min-width: 390px) { .hero h1 { font-size: 3.75rem; } }
         @media (min-width: 640px) { .hero h1 { font-size: 5rem; line-height: 0.85; } }
-        @media (min-width: 768px) { .hero h1 { font-size: 7rem; } }
+        @media (min-width: 768px) { .hero h1 { font-size: 6.2rem; } }
+        .hero h1 .dim { color: rgba(0,0,0,0.55); font-weight: 600; }
+        .dark .hero h1 .dim { color: rgba(243,243,243,0.6); }
+        .hero-sub { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.2px; margin-bottom: 12px; color: var(--text); }
+        .hero-sub span { color: var(--text-muted); font-weight: 400; }
+        .hero-desc { font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); max-width: 560px; margin-bottom: 28px; }
+        @media(min-width:640px){ .hero-desc{ font-size: 1.02rem; } }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: var(--accent); color: #fff; border-radius: var(--radius-pill); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; transition: all 0.2s; border: 1px solid transparent; }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,0.35); }
+        .btn-secondary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; background: var(--bg-card); color: var(--text); border: 1px solid var(--border-strong); border-radius: var(--radius-pill); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; transition: all 0.2s; }
+        .btn-secondary:hover { border-color: var(--text); transform: translateY(-2px); }
+        .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; padding-top: 24px; border-top: 1px solid var(--border-subtle); max-width: 520px; }
+        .hero-stats div strong { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; line-height: 1; display: block; }
+        .hero-stats div span { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0.6; }
+        .hero .social-row { display: flex; align-items: center; gap: 18px; margin-top: 18px; }
+        .hero .social-row a { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--border-subtle); background: var(--bg-card); color: var(--text); opacity: 0.9; transition: all 0.2s; }
+        .hero .social-row a:hover { background: var(--text); color: var(--bg); transform: translateY(-2px); border-color: var(--text); }
 
-        .hero h1 .dim { color: rgba(0,0,0,0.8); }
-        .dark .hero h1 .dim { color: rgba(243,243,243,0.9); }
+        /* Hero image */
+        .hero-right { position: relative; width: 100%; aspect-ratio: 4/5; }
+        @media (min-width: 640px) { .hero-right { aspect-ratio: 1/1; } }
+        @media (min-width: 1024px) { .hero-right { aspect-ratio: 4/5; } }
+        .hero-right .img-wrap { width: 100%; height: 100%; border-radius: var(--radius-3xl); overflow: hidden; background: var(--bg-subtle); border: 1px solid var(--border-subtle); position: relative; box-shadow: var(--shadow); }
+        .hero-right .img-wrap .overlay { display: none; }
+        .hero-right img { width: 100%; height: 100%; object-fit: cover; filter: none; transform: none; transition: transform 0.5s ease; }
+        .hero-right .img-wrap:hover img { filter: none; transform: scale(1.02); }
+        .floating-card { position: absolute; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 12px 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.12); display: flex; align-items: center; gap: 12px; z-index: 3; }
+        .floating-card .icon { width: 38px; height: 38px; border-radius: 10px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .floating-card strong { font-size: 0.85rem; font-weight: 700; line-height: 1; display: block; }
+        .floating-card span { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.6; }
+        .floating-card.top { top: 18px; right: -10px; }
+        .floating-card.bottom { bottom: 18px; left: -10px; }
+        @media(max-width: 1024px){ .floating-card.top{ right: 10px; } .floating-card.bottom{ left: 10px; } }
+        @media(max-width: 640px){ .floating-card{ padding: 10px 12px; } .floating-card.top{ top: 10px; } .floating-card.bottom{ bottom: 10px; } }
 
-        .hero .social-row {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            margin-top: 48px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border-subtle);
-            max-width: 400px;
-        }
-
-        .hero .social-row a {
-            opacity: 0.5;
-            transition: opacity var(--transition);
-            color: var(--text);
-            font-size: 1.2rem;
-            line-height: 1;
-        }
-        .dark .hero .social-row a:hover { color: var(--accent); }
-        .hero .social-row a:hover { opacity: 1; }
-
-        .hero-right {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 4/5;
-        }
-
-        @media (min-width: 640px) {
-            .hero-right { aspect-ratio: 1/1; }
-        }
-
-        @media (min-width: 1024px) {
-            .hero-right { aspect-ratio: 4/5; }
-        }
-
-        .hero-right .img-wrap {
-            width: 100%;
-            height: 100%;
-            border-radius: var(--radius-2xl);
-            overflow: hidden;
-            background: var(--bg-subtle);
-            border: 1px solid var(--border-subtle);
-            position: relative;
-        }
-
-        .hero-right .img-wrap .overlay {
-            position: absolute;
-            inset: 0;
-            background: var(--accent);
-            opacity: 0;
-            mix-blend-mode: overlay;
-            transition: opacity 0.5s;
-            z-index: 10;
-            pointer-events: none;
-        }
-
-        .hero-right .img-wrap:hover .overlay { opacity: 1; }
-
-        .hero-right img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(1);
-            transform: scale(1.05);
-            transition: all 0.7s ease-out;
-        }
-
-        .hero-right .img-wrap:hover img {
-            filter: grayscale(0);
-            transform: scale(1);
-        }
-
-        .section-wrap {
-            position: relative;
-            z-index: 1;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        @media (min-width: 640px) {
-            section { padding: 96px 0; }
-        }
-
-        .section-title-lg {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 2.25rem;
-            letter-spacing: -2px;
-            text-transform: uppercase;
-            line-height: 1;
-            word-break: break-word;
-        }
-
+        /* Sections */
+        .section-wrap { position: relative; z-index: 1; }
+        section { padding: 72px 0; }
+        @media (min-width: 640px) { section { padding: 88px 0; } }
+        .section-title-lg { font-family: var(--font-display); font-weight: 800; font-size: 2.25rem; letter-spacing: -2px; text-transform: uppercase; line-height: 0.9; word-break: break-word; }
         @media (min-width: 390px) { .section-title-lg { font-size: 3rem; } }
-        @media (min-width: 640px) { .section-title-lg { font-size: 4.5rem; } }
-        @media (min-width: 768px) { .section-title-lg { font-size: 6rem; } }
+        @media (min-width: 640px) { .section-title-lg { font-size: 4rem; } }
+        @media (min-width: 768px) { .section-title-lg { font-size: 5rem; } }
+        .section-title-sm { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.8px; opacity: 0.6; max-width: 380px; line-height: 1.6; }
+        @media (min-width: 640px) { .section-title-sm { font-size: 0.8rem; } }
+        .section-header { margin-bottom: 40px; display: flex; flex-direction: column; gap: 16px; }
+        @media (min-width: 768px) { .section-header { flex-direction: row; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; } }
+        .card-subtle { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-2xl); box-shadow: var(--shadow); }
+        @media (min-width: 640px) { .card-subtle { border-radius: var(--radius-3xl); } }
 
-        .section-title-sm {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.6;
-            max-width: 320px;
-            line-height: 1.6;
-        }
+        /* About + Expertise */
+        .about-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 900px) { .about-grid { grid-template-columns: 1.35fr 0.85fr; } }
+        .about-card { padding: 28px; }
+        @media (min-width: 640px) { .about-card { padding: 40px; } }
+        .about-card h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.75rem; text-transform: uppercase; letter-spacing: -1px; margin-bottom: 18px; }
+        @media (min-width: 640px) { .about-card h3 { font-size: 2.2rem; } }
+        .about-card p { font-size: 0.98rem; line-height: 1.75; color: var(--text-muted); max-width: 640px; }
+        @media (min-width: 640px) { .about-card p { font-size: 1.05rem; } }
+        .about-highlights { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+        .about-highlights span { font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 7px 12px; border-radius: var(--radius-pill); background: var(--bg-subtle); border: 1px solid var(--border-subtle); }
+        .creative-card { background: var(--accent); color: #fff; padding: 28px; border-radius: var(--radius-2xl); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s, box-shadow 0.3s; border: 1px solid transparent; }
+        @media (min-width: 640px) { .creative-card { padding: 36px; border-radius: var(--radius-3xl); } }
+        .creative-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(37,99,235,0.3); }
+        .creative-card h4 { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; letter-spacing: -0.5px; line-height: 1; }
+        .creative-card p { font-family: var(--font-mono); font-size: 0.82rem; opacity: 0.75; margin-top: 14px; line-height: 1.5; }
+        .creative-card .arrow { display: flex; justify-content: flex-end; margin-top: 32px; }
+        .creative-card .arrow div { width: 48px; height: 48px; border-radius: 50%; background: #fff; color: var(--accent); display: flex; align-items: center; justify-content: center; transition: transform 0.3s; }
 
-        @media (min-width: 640px) { .section-title-sm { font-size: 0.875rem; } }
+        /* Expertise */
+        .expertise-section { padding-top: 0; }
+        .expertise-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        @media (min-width: 640px) { .expertise-grid { grid-template-columns: repeat(2,1fr); } }
+        @media (min-width: 1024px) { .expertise-grid { grid-template-columns: repeat(3,1fr); } }
+        .expertise-card { padding: 26px; border-radius: var(--radius-2xl); background: var(--bg-card); border: 1px solid var(--border-subtle); transition: all 0.3s; position: relative; overflow: hidden; }
+        .expertise-card:hover { transform: translateY(-4px); border-color: var(--text); box-shadow: var(--shadow); }
+        .expertise-card .icon-box { width: 44px; height: 44px; border-radius: 12px; background: var(--bg-subtle); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; color: var(--text); }
+        .expertise-card:hover .icon-box { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .expertise-card h4 { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; text-transform: uppercase; letter-spacing: -0.3px; margin-bottom: 10px; }
+        .expertise-card p { font-size: 0.86rem; line-height: 1.65; color: var(--text-muted); }
+        .expertise-card ul { margin-top: 14px; list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+        .expertise-card ul li { font-family: var(--font-mono); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 5px 8px; background: var(--bg-subtle); border: 1px solid var(--border-subtle); border-radius: 6px; }
 
-        .section-header {
-            margin-bottom: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        @media (min-width: 768px) {
-            .section-header {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-end;
-                margin-bottom: 96px;
-            }
-        }
-
-        .card-subtle {
-            background: var(--bg-subtle);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-2xl);
-        }
-
-        @media (min-width: 640px) {
-            .card-subtle { border-radius: var(--radius-3xl); }
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-
-        @media (min-width: 768px) {
-            .about-grid { grid-template-columns: 2fr 1fr; }
-        }
-
-        .about-card {
-            padding: 24px;
-        }
-
-        @media (min-width: 640px) {
-            .about-card { padding: 48px; }
-        }
-
-        .about-card h3 {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.875rem;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin-bottom: 24px;
-        }
-
-        @media (min-width: 640px) { .about-card h3 { font-size: 3rem; } }
-
-        .about-card p {
-            font-size: 1rem;
-            line-height: 1.7;
-            max-width: 640px;
-            opacity: 0.8;
-        }
-
-        @media (min-width: 640px) { .about-card p { font-size: 1.25rem; } }
-
-        .creative-card {
-            background: var(--accent);
-            color: #000;
-            padding: 24px;
-            border-radius: var(--radius-2xl);
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s;
-        }
-
-        @media (min-width: 640px) {
-            .creative-card {
-                padding: 40px;
-                border-radius: var(--radius-3xl);
-            }
-        }
-
-        .creative-card:hover { transform: scale(1.02); }
-
-        .creative-card h4 {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-        }
-
-        .creative-card p {
-            font-family: var(--font-mono);
-            font-size: 0.875rem;
-            opacity: 0.8;
-            margin-top: 16px;
-            line-height: 1.5;
-        }
-
-        .creative-card .arrow {
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 48px;
-        }
-
-        .creative-card .arrow div {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: #000;
-            color: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s;
-        }
-
-        .creative-card:hover .arrow div { transform: rotate(-45deg); }
-
-        .creative-card .arrow svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .filter-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 40px;
-        }
-
-        .filter-btn {
-            padding: 8px 20px;
-            border-radius: 100px;
-            font-family: var(--font-mono);
-            font-size: 0.6875rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid var(--border-subtle);
-            background: transparent;
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .filter-btn:hover { background: var(--bg-subtle); }
-        .filter-btn.active {
-            background: #000;
-            color: var(--accent);
-        }
-
-        .dark .filter-btn.active {
-            background: #fff;
-            color: #000;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-
+        /* Projects */
+        .filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+        .filter-btn { padding: 9px 18px; border-radius: var(--radius-pill); font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; border: 1px solid var(--border-subtle); background: var(--bg-card); color: var(--text); cursor: pointer; transition: all 0.2s; }
+        .filter-btn:hover { border-color: var(--text); }
+        .filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .dark .filter-btn.active { background: #fff; color: #000; border-color: #fff; }
+        .projects-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         @media (min-width: 768px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (min-width: 1024px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
-
-        .project-card {
-            border-radius: var(--radius-2xl);
-            overflow: hidden;
-            border: 1px solid var(--border-subtle);
-            background: var(--bg-subtle);
-            transition: border-color 0.5s;
-            display: flex;
-            flex-direction: column;
-        }
-
+        .project-card { border-radius: var(--radius-2xl); overflow: hidden; border: 1px solid var(--border-subtle); background: var(--bg-card); transition: all 0.4s; display: flex; flex-direction: column; box-shadow: var(--shadow); }
         @media (min-width: 640px) { .project-card { border-radius: var(--radius-3xl); } }
-
-        .project-card:hover {
-            border-color: var(--text);
-        }
-
-        .dark .project-card:hover {
-            border-color: #fff;
-        }
-
-        .project-image {
-            position: relative;
-            aspect-ratio: 4/3;
-            overflow: hidden;
-            background: rgba(0,0,0,0.05);
-        }
-
-        .dark .project-image { background: rgba(255,255,255,0.05); }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(1);
-            transform: scale(1.05);
-            transition: all 0.7s ease-out;
-        }
-
-        .project-card:hover .project-image img {
-            filter: grayscale(0);
-            transform: scale(1);
-        }
-
-        .project-image .featured-badge {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            z-index: 10;
-            padding: 4px 12px;
-            background: var(--accent);
-            color: #000;
-            font-family: var(--font-mono);
-            font-size: 0.625rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 100px;
-        }
-
-        .project-image .hover-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.4);
-            opacity: 0;
-            transition: opacity 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            backdrop-filter: blur(4px);
-        }
-
+        .project-card:hover { border-color: var(--text); transform: translateY(-4px); }
+        .project-image { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--bg-subtle); }
+        .project-image img { width: 100%; height: 100%; object-fit: cover; filter: none; transform: none; transition: transform 0.6s ease; }
+        .project-card:hover .project-image img { filter: none; transform: scale(1.03); }
+        .project-image .featured-badge { position: absolute; top: 14px; left: 14px; z-index: 10; padding: 5px 11px; background: var(--accent); color: #fff; font-family: var(--font-mono); font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; border-radius: var(--radius-pill); }
+        .project-image .hover-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.45); opacity: 0; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center; gap: 12px; backdrop-filter: blur(4px); }
         .project-card:hover .project-image .hover-overlay { opacity: 1; }
-
-        .project-image .hover-overlay a {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.2s;
-        }
-
+        .project-image .hover-overlay a { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: transform 0.2s; }
         .project-image .hover-overlay a:hover { transform: scale(1.1); }
+        .project-image .hover-overlay .live-link { background: var(--accent); color: #fff; }
+        .project-image .hover-overlay .github-link { background: #fff; color: #000; }
+        .project-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+        @media (min-width: 640px) { .project-body { padding: 24px 26px; } }
+        .project-body .category { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px; opacity: 0.5; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .project-body .category::before{ content:""; width: 18px; height: 1px; background: currentColor; opacity: 0.5; }
+        .project-body h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; text-transform: uppercase; letter-spacing: -0.4px; margin-bottom: 10px; line-height: 1.1; }
+        @media (min-width: 640px) { .project-body h3 { font-size: 1.25rem; } }
+        .project-body .desc { font-size: 0.85rem; opacity: 0.7; line-height: 1.65; margin-bottom: 18px; flex: 1; }
+        .project-body .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .project-body .tags span { padding: 5px 9px; border-radius: 6px; background: var(--bg-subtle); border: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; }
 
-        .project-image .hover-overlay .live-link {
-            background: var(--accent);
-            color: #000;
-        }
+        /* Contact */
+        .contact-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+        @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1.1fr; gap: 48px; } }
+        .contact-left { display: flex; flex-direction: column; gap: 28px; }
+        .contact-left h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; letter-spacing: -0.5px; }
+        @media (min-width: 640px) { .contact-left h3 { font-size: 1.85rem; } }
+        .contact-left .desc { font-size: 1rem; line-height: 1.7; opacity: 0.7; max-width: 500px; }
+        .contact-cards { display: grid; gap: 12px; }
+        .contact-card { display: flex; align-items: center; gap: 16px; padding: 16px 18px; border-radius: 16px; background: var(--bg-card); border: 1px solid var(--border-subtle); transition: all 0.2s; }
+        .contact-card:hover { border-color: var(--text); transform: translateY(-2px); }
+        .contact-card .icon { width: 44px; height: 44px; border-radius: 12px; background: var(--bg-subtle); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .contact-card:hover .icon { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .contact-card strong { font-size: 0.88rem; font-weight: 700; display: block; line-height: 1.2; }
+        .contact-card span, .contact-card a { font-family: var(--font-mono); font-size: 0.75rem; opacity: 0.7; }
+        .contact-quote { padding: 22px 24px; background: var(--accent); color: #fff; border-radius: var(--radius-2xl); font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; text-transform: uppercase; letter-spacing: -0.4px; display: flex; align-items: center; gap: 14px; }
+        .contact-quote svg{ flex-shrink:0; opacity:0.7; }
+        .contact-form-wrap { padding: 24px; border-radius: var(--radius-2xl); background: var(--bg-card); border: 1px solid var(--border-subtle); box-shadow: var(--shadow); }
+        @media (min-width: 640px) { .contact-form-wrap { padding: 32px; border-radius: var(--radius-3xl); } }
+        .contact-form { display: flex; flex-direction: column; gap: 18px; }
+        .form-group label { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; opacity: 0.7; display: block; margin-bottom: 8px; }
+        .contact-form input, .contact-form textarea { width: 100%; background: var(--bg-subtle); border: 1px solid var(--border-subtle); padding: 13px 16px; border-radius: 12px; font-family: var(--font-sans); font-size: 0.9rem; color: var(--text); outline: none; transition: all 0.2s; }
+        .contact-form input:focus, .contact-form textarea:focus { background: var(--bg-card); border-color: var(--text); box-shadow: 0 0 0 3px var(--border-subtle); }
+        .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--text-faint); }
+        .contact-form textarea { resize: vertical; min-height: 110px; }
+        .submit-btn { width: 100%; padding: 15px 28px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius-pill); font-family: var(--font-mono); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .dark .submit-btn { background: var(--accent); color: #fff; }
+        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+        .submit-btn:disabled{ opacity:0.6; cursor:not-allowed; transform:none; }
+        .form-note { font-family: var(--font-mono); font-size: 0.65rem; opacity: 0.5; text-align: center; }
 
-        .project-image .hover-overlay .github-link {
-            background: #fff;
-            color: #000;
-        }
+        /* Footer */
+        .footer-bar { border-top: 1px solid var(--border-subtle); padding: 28px 0; position: relative; z-index: 1; background: var(--bg-subtle); backdrop-filter: blur(8px); }
+        .footer-inner { display: flex; flex-direction: column; gap: 16px; align-items: center; justify-content: space-between; }
+        @media(min-width:640px){ .footer-inner{ flex-direction: row; } }
+        .footer-bar p { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.5; }
+        .footer-links{ display:flex; gap: 18px; }
+        .footer-links a{ font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; opacity: 0.6; transition: opacity 0.2s; }
+        .footer-links a:hover{ opacity:1; }
 
-        .project-image .hover-overlay svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        .project-body {
-            padding: 20px 24px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-
-        @media (min-width: 640px) { .project-body { padding: 24px 32px; } }
-
-        .project-body .category {
-            font-family: var(--font-mono);
-            font-size: 0.625rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.5;
-            margin-bottom: 16px;
-        }
-
-        .project-body h3 {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.25rem;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-            margin-bottom: 16px;
-        }
-
-        @media (min-width: 640px) { .project-body h3 { font-size: 1.5rem; } }
-
-        .project-body .desc {
-            font-size: 0.875rem;
-            opacity: 0.7;
-            line-height: 1.6;
-            margin-bottom: 24px;
-            flex: 1;
-        }
-
-        .project-body .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .project-body .tags span {
-            padding: 4px 8px;
-            border-radius: 4px;
-            background: rgba(0,0,0,0.05);
-            font-family: var(--font-mono);
-            font-size: 0.625rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .dark .project-body .tags span {
-            background: rgba(255,255,255,0.1);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 48px;
-        }
-
-        @media (min-width: 1024px) {
-            .contact-grid { grid-template-columns: 1fr 1fr; gap: 64px 96px; }
-        }
-
-        .contact-left { display: flex; flex-direction: column; justify-content: space-between; }
-
-        .contact-left h3 {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-            margin-bottom: 24px;
-        }
-
-        @media (min-width: 640px) { .contact-left h3 { font-size: 1.875rem; } }
-
-        .contact-left .desc {
-            font-size: 1rem;
-            line-height: 1.7;
-            opacity: 0.7;
-            max-width: 440px;
-            margin-bottom: 40px;
-        }
-
-        @media (min-width: 640px) { .contact-left .desc { font-size: 1.125rem; } }
-
-        .contact-left .info-row {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border-subtle);
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .contact-left .info-row svg {
-            width: 20px;
-            height: 20px;
-            opacity: 0.5;
-            flex-shrink: 0;
-        }
-
-        .contact-quote {
-            margin-top: 48px;
-            padding: 24px 32px;
-            background: var(--accent);
-            color: #000;
-            border-radius: var(--radius-2xl);
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.125rem;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-        }
-
-        @media (min-width: 640px) {
-            .contact-quote {
-                padding: 32px;
-                border-radius: var(--radius-3xl);
-                font-size: 1.25rem;
-            }
-        }
-
-        .contact-form-wrap {
-            padding: 20px 24px;
-            border-radius: var(--radius-2xl);
-        }
-
-        @media (min-width: 640px) {
-            .contact-form-wrap { padding: 48px; border-radius: var(--radius-3xl); }
-        }
-
-        .contact-form { display: flex; flex-direction: column; height: 100%; }
-
-        .contact-form .fields {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            flex: 1;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid var(--border-subtle);
-            padding: 14px 0;
-            font-family: var(--font-mono);
-            font-size: 0.875rem;
-            color: var(--text);
-            outline: none;
-            transition: border-color 0.2s;
-            border-radius: 0;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--text);
-        }
-
-        .dark .contact-form input:focus,
-        .dark .contact-form textarea:focus {
-            border-color: #fff;
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: rgba(0,0,0,0.3);
-        }
-
-        .dark .contact-form input::placeholder,
-        .dark .contact-form textarea::placeholder {
-            color: rgba(255,255,255,0.3);
-        }
-
-        .contact-form textarea {
-            resize: none;
-        }
-
-        .contact-form .form-footer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            padding-top: 24px;
-            margin-top: 24px;
-        }
-
-        @media (min-width: 640px) {
-            .contact-form .form-footer {
-                flex-direction: row;
-                padding-top: 32px;
-                margin-top: 32px;
-            }
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 16px 40px;
-            background: #000;
-            color: var(--accent);
-            border: none;
-            border-radius: 100px;
-            font-family: var(--font-mono);
-            font-size: 0.6875rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: transform 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .dark .submit-btn {
-            background: #fff;
-            color: #000;
-        }
-
-        .submit-btn:hover { transform: scale(1.05); }
-
-        .submit-btn svg { width: 16px; height: 16px; }
-
-        .footer-bar {
-            border-top: 1px solid var(--border-subtle);
-            padding: 24px 0;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer-bar p {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.4;
-        }
+        /* Reveal */
+        .reveal { opacity: 0; transform: translateY(16px); transition: all 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 767px) {
             .nav-links { display: none; }
-            .hero h1 { line-height: 0.9; }
         }
     </style>
 </head>
@@ -888,12 +298,14 @@
 
     <nav class="navbar">
         <div class="inner">
-            <a href="#" class="logo">Rivaldi.<span>W</span></a>
+            <a href="#" class="logo">Rivaldi.<span>W</span> <small>IT Cluster Specialist</small></a>
             <ul class="nav-links">
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#expertise">Keahlian</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#contact" class="nav-cta">Hubungi Saya</a></li>
             </ul>
-            <button class="theme-btn" onclick="toggleTheme()">DARK</button>
+            <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">DARK</button>
         </div>
     </nav>
 
@@ -903,32 +315,57 @@
                 <div class="hero-left">
                     <div class="hero-badge">
                         <span class="dot"></span>
-                        It Cluster Specialist
+                        Available for Projects • Malang, ID
                     </div>
                     <h1>
                         Rivaldi<br>
                         <span class="dim">Wibowo</span>
                     </h1>
-
+                    <p class="hero-sub">IT Cluster Specialist <span>— Hospitality Technology</span></p>
+                    <p class="hero-desc">
+                        Saya membantu cluster hotel membangun infrastruktur IT yang <strong>andal, aman, dan scalable</strong> — dari desain jaringan enterprise, CCTV & server, hingga integrasi PMS/POS dan VPN antar properti.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn-primary">
+                            Konsultasi Gratis
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                        <a href="#projects" class="btn-secondary">
+                            Lihat Proyek
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div><strong>Cluster</strong><span>Multi-Property</span></div>
+                        <div><strong>24/7</strong><span>Operational Support</span></div>
+                        <div><strong>Enterprise</strong><span>Grade Network</span></div>
+                    </div>
                     <div class="social-row">
                         <a href="mailto:offcrivaldi@gmail.com" title="Email" aria-label="Email">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                         </a>
                         <a href="https://github.com/offcrivaldi-hash" target="_blank" title="GitHub" aria-label="GitHub">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
                         </a>
-                        <a href="https://linkedin.com/in/rivaldi-wibowo" target="_blank" title="LinkedIn" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        <a href="https://www.linkedin.com/in/rivaldiwe/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                         </a>
                         <a href="https://wa.me/6283849918685" target="_blank" title="WhatsApp" aria-label="WhatsApp">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.498 14.382c-.26-.13-1.538-.758-1.776-.845-.238-.087-.413-.13-.587.13-.174.26-.674.845-.826 1.018-.152.174-.304.196-.564.065-.26-.13-1.097-.404-2.09-1.29-.772-.69-1.294-1.544-1.445-1.805-.152-.26-.017-.402.114-.532.115-.115.26-.3.39-.452.13-.152.174-.26.26-.434.087-.173.044-.325-.022-.456-.065-.13-.587-1.417-.804-1.945-.212-.52-.426-.434-.587-.442-.152-.008-.326-.008-.5-.008-.174 0-.456.065-.696.326-.24.26-.913.892-.913 2.176 0 1.284.934 2.526 1.065 2.7.13.174 1.838 2.806 4.454 3.838 2.616 1.03 2.616.688 3.088.645.437-.04 1.385-.566 1.58-1.113.206-.56.206-1.04.144-1.14-.065-.1-.24-.152-.5-.283z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.88.52 3.64 1.42 5.16L2 22l5.16-1.42A9.95 9.95 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 14.38c-.26-.13-1.54-.76-1.78-.84-.24-.09-.41-.13-.59.13-.17.26-.67.84-.83 1.02-.15.17-.3.19-.56.06-.26-.13-1.1-.4-2.09-1.29-.77-.69-1.29-1.54-1.44-1.8-.15-.26-.02-.4.11-.53.11-.11.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.59-1.42-.8-1.94-.21-.52-.43-.43-.59-.44-.15 0-.33 0-.5 0-.17 0-.46.06-.7.32-.24.26-.91.89-.91 2.18 0 1.28.93 2.52 1.06 2.7.13.17 1.84 2.8 4.45 3.84 2.62 1.03 2.62.68 3.09.64.44-.04 1.38-.56 1.58-1.11.2-.56.2-1.04.14-1.14-.06-.1-.24-.15-.5-.28z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.88.52 3.64 1.42 5.16L2 22l5.16-1.42A9.95 9.95 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
                         </a>
                     </div>
                 </div>
                 <div class="hero-right">
                     <div class="img-wrap">
                         <div class="overlay"></div>
-                        <img src="https://avatars.githubusercontent.com/u/271122148?v=4" alt="Rivaldi Wibowo" width="800" height="800" fetchpriority="high">
+                        <img src="https://avatars.githubusercontent.com/u/271122148?v=4" alt="Rivaldi Wibowo — IT Cluster Specialist Malang" width="800" height="800" fetchpriority="high">
+                    </div>
+                    <div class="floating-card top">
+                        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                        <div><strong>Zero-Downtime</strong><span>Network Design</span></div>
+                    </div>
+                    <div class="floating-card bottom">
+                        <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                        <div><strong>Fast Response</strong><span>Cluster Support</span></div>
                     </div>
                 </div>
             </div>
@@ -936,23 +373,29 @@
     </section>
 
     <div class="section-wrap">
-        <section>
+        <section id="about">
             <div class="container">
-                <div class="about-grid">
+                <div class="about-grid reveal">
                     <div class="card-subtle about-card">
                         <h3>Tentang Saya</h3>
-                        <p>Halo, saya <strong>Rivaldi Wibowo</strong>, seorang <strong>IT Cluster Specialist</strong> berbasis di Malang, Jawa Timur. Saya memiliki spesialisasi dalam infrastruktur IT perhotelan, administrasi jaringan, sistem CCTV, VPN, dan integrasi PMS/POS.</p>
+                        <p>Saya <strong>Rivaldi Wibowo</strong>, <strong>IT Cluster Specialist</strong> berbasis di <strong>Malang, Jawa Timur</strong>, berfokus pada infrastruktur teknologi untuk industri perhotelan.</p>
                         <br>
-                        <p>Rekam jejak saya mencakup desain jaringan enterprise, keamanan sistem, dan solusi teknologi terpadu untuk industri perhotelan.</p>
+                        <p>Berpengalaman dalam perancangan dan pengelolaan infrastruktur IT untuk operasional hotel — meliputi <strong>segmentasi VLAN & redundancy, WiFi enterprise, CCTV/Surveillance, VPN site-to-site</strong>, hingga <strong>integrasi PMS/POS dan manajemen server</strong>. Fokus utama: memastikan operasional yang stabil, aman, dan skalabel antar properti dalam satu cluster.</p>
+                        <div class="about-highlights">
+                            <span>Malang • Jawa Timur</span>
+                            <span>Hospitality Focused</span>
+                            <span>Enterprise Network</span>
+                            <span>Security First</span>
+                        </div>
                     </div>
-                    <a href="#projects" class="creative-card">
+                    <a href="#expertise" class="creative-card">
                         <div>
-                            <h4>Kreativitas<br>&amp; Teknologi</h4>
-                            <p>Jelajahi proyek-proyek infrastruktur IT yang telah saya kerjakan.</p>
+                            <h4>Solusi IT<br>Terintegrasi</h4>
+                            <p>Dari backbone jaringan hingga integrasi aplikasi hotel — satu tim, satu standar, untuk seluruh cluster.</p>
                         </div>
                         <div class="arrow">
                             <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                             </div>
                         </div>
                     </a>
@@ -960,86 +403,157 @@
             </div>
         </section>
 
+        <section id="expertise" class="expertise-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title-lg">Keahlian</h2>
+                    <p class="section-title-sm">Fokus pada keandalan operasional hotel — jaringan, keamanan, dan sistem yang saling terhubung</p>
+                </div>
+                <div class="expertise-grid reveal">
+                    <div class="expertise-card">
+                        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg></div>
+                        <h4>Network & Infrastructure</h4>
+                        <p>Desain jaringan enterprise untuk cluster hotel dengan segmentasi, QoS, dan failover yang rapi.</p>
+                        <ul><li>MikroTik</li><li>Cisco</li><li>VLAN</li><li>Hotspot</li></ul>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                        <h4>PMS / POS Integration</h4>
+                        <p>Integrasi sistem front-office, kasir, dan back-office agar data sinkron dan operasional lancar.</p>
+                        <ul><li>PMS</li><li>POS</li><li>API</li><li>Database</li></ul>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
+                        <h4>CCTV & Surveillance</h4>
+                        <p>Sistem pengawasan IP Camera, NVR/DVR, dan monitoring terpusat untuk keamanan properti.</p>
+                        <ul><li>IP Camera</li><li>NVR</li><li>Hikvision</li><li>Dahua</li></ul>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg></div>
+                        <h4>Server & Virtualization</h4>
+                        <p>Administrasi server, virtualisasi, backup & disaster recovery untuk kontinuitas bisnis.</p>
+                        <ul><li>Linux</li><li>Windows Server</li><li>Proxmox</li><li>Backup</li></ul>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                        <h4>Cybersecurity & VPN</h4>
+                        <p>Keamanan jaringan, firewall, dan koneksi VPN antar cabang yang terenkripsi dan stabil.</p>
+                        <ul><li>Firewall</li><li>VPN</li><li>WireGuard</li><li>Hardening</li></ul>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="icon-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                        <h4>IT Operations</h4>
+                        <p>Support operasional harian, SOP, dokumentasi, dan pelatihan tim untuk kemandirian operasional.</p>
+                        <ul><li>SOP</li><li>Monitoring</li><li>Helpdesk</li><li>Training</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="projects">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header reveal">
                     <h2 class="section-title-lg">Proyek</h2>
-                    <p class="section-title-sm">Kumpulan proyek infrastruktur IT dan jaringan yang pernah dikerjakan</p>
+                    <p class="section-title-sm">Seleksi proyek infrastruktur IT yang dirancang untuk keandalan operasional hospitality</p>
                 </div>
 
-                <div class="filter-row">
+                <div class="filter-row reveal">
                     <button class="filter-btn active" data-filter="all">Semua</button>
                     <button class="filter-btn" data-filter="Network">Network</button>
                     <button class="filter-btn" data-filter="Infrastructure">Infrastructure</button>
                     <button class="filter-btn" data-filter="Security">Security</button>
+                    <button class="filter-btn" data-filter="System">System</button>
                 </div>
 
-                <div class="projects-grid" id="projectsGrid">
-
+                <div class="projects-grid reveal" id="projectsGrid">
                     <div class="project-card" data-category="Network">
                         <div class="project-image">
                             <div class="featured-badge">Featured</div>
-                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=450&fit=crop" alt="Network Infrastructure" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=450&fit=crop" alt="Hotel Network Design - Enterprise VLAN" loading="lazy">
                             <div class="hover-overlay">
-                                <a href="#" class="live-link" target="_blank" rel="noreferrer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-                                </a>
-                                <a href="#" class="github-link" target="_blank" rel="noreferrer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                                </a>
+                                <a href="#contact" class="live-link" aria-label="Konsultasi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
                             </div>
                         </div>
                         <div class="project-body">
-                            <div class="category">Network &amp; Infrastructure</div>
-                            <h3>Hotel Network Design</h3>
-                            <p class="desc">Enterprise-grade network infrastructure design for hotel clusters with VLAN segmentation and redundancy.</p>
-                            <div class="tags">
-                                <span>MikroTik</span>
-                                <span>Cisco</span>
-                                <span>VLAN</span>
-                            </div>
+                            <div class="category">Network & Infrastructure</div>
+                            <h3>Hotel Cluster Network</h3>
+                            <p class="desc">Desain backbone enterprise untuk multi-property: VLAN segmentasi (Guest, Staff, IoT, CCTV), redundant gateway & load balancing.</p>
+                            <div class="tags"><span>MikroTik</span><span>Cisco</span><span>VLAN</span><span>Failover</span></div>
                         </div>
                     </div>
 
                     <div class="project-card" data-category="Security">
                         <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=450&fit=crop" alt="CCTV System" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=450&fit=crop" alt="CCTV & Surveillance Terpusat" loading="lazy">
                             <div class="hover-overlay">
-                                <a href="#" class="live-link" target="_blank" rel="noreferrer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-                                </a>
+                                <a href="#contact" class="live-link" aria-label="Konsultasi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
                             </div>
                         </div>
                         <div class="project-body">
                             <div class="category">Security</div>
-                            <h3>CCTV &amp; Surveillance</h3>
-                            <p class="desc">IP Camera systems, NVR/DVR configuration, and comprehensive surveillance solutions for hospitality.</p>
-                            <div class="tags">
-                                <span>IP Camera</span>
-                                <span>NVR</span>
-                                <span>Surveillance</span>
-                            </div>
+                            <h3>CCTV & Surveillance</h3>
+                            <p class="desc">IP Camera & NVR terpusat, retensi terstruktur, dan akses monitoring aman untuk manajemen & security.</p>
+                            <div class="tags"><span>IP Camera</span><span>NVR</span><span>Hikvision</span><span>Monitoring</span></div>
                         </div>
                     </div>
 
                     <div class="project-card" data-category="Infrastructure">
                         <div class="project-image">
-                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=450&fit=crop" alt="Server Infrastructure" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=450&fit=crop" alt="Server Management & Backup" loading="lazy">
                             <div class="hover-overlay">
-                                <a href="#" class="github-link" target="_blank" rel="noreferrer">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-                                </a>
+                                <a href="#contact" class="live-link" aria-label="Konsultasi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg></a>
                             </div>
                         </div>
                         <div class="project-body">
                             <div class="category">Infrastructure</div>
-                            <h3>Server Management</h3>
-                            <p class="desc">Linux/Windows server administration, virtualization, backup solutions, and IT operations management.</p>
-                            <div class="tags">
-                                <span>Linux</span>
-                                <span>Windows</span>
-                                <span>Backup</span>
+                            <h3>Server & Backup Strategy</h3>
+                            <p class="desc">Virtualisasi, backup harian terenkripsi, dan disaster recovery untuk menjaga kontinuitas layanan hotel.</p>
+                            <div class="tags"><span>Linux</span><span>Proxmox</span><span>Backup</span><span>DR</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="Network">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c429?w=600&h=450&fit=crop" alt="VPN Interkoneksi Cluster" loading="lazy">
+                            <div class="hover-overlay">
+                                <a href="#contact" class="live-link" aria-label="Konsultasi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="2"/></svg></a>
                             </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="category">Network • Security</div>
+                            <h3>VPN Interkoneksi Cluster</h3>
+                            <p class="desc">Koneksi site-to-site antar properti dengan WireGuard/IPSec, routing aman dan monitoring uptime.</p>
+                            <div class="tags"><span>WireGuard</span><span>IPSec</span><span>Routing</span><span>Uptime</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="System">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=450&fit=crop" alt="PMS POS Integration" loading="lazy">
+                            <div class="hover-overlay">
+                                <a href="#contact" class="live-link" aria-label="Konsultasi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></a>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="category">System Integration</div>
+                            <h3>PMS / POS Integration</h3>
+                            <p class="desc">Sinkronisasi PMS, POS, dan akuntansi — mengurangi input manual dan mempercepat closing harian.</p>
+                            <div class="tags"><span>PMS</span><span>POS</span><span>API</span><span>Automation</span></div>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="System">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=600&h=450&fit=crop" alt="WiFi Enterprise & Hotspot" loading="lazy">
+                            <div class="hover-overlay">
+                                <a href="#contact" class="live-link" aria-label="Konsultasi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r=".5"/></svg></a>
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="category">Network • System</div>
+                            <h3>WiFi Enterprise & Hotspot</h3>
+                            <p class="desc">Captive portal, bandwidth management, dan analytics untuk pengalaman tamu yang konsisten di semua area.</p>
+                            <div class="tags"><span>UniFi</span><span>Captive Portal</span><span>QoS</span><span>Analytics</span></div>
                         </div>
                     </div>
 
@@ -1049,43 +563,63 @@
 
         <section id="contact">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header reveal">
                     <h2 class="section-title-lg">Kontak</h2>
-                    <p class="section-title-sm">Hubungi saya untuk kolaborasi IT dan diskusi proyek</p>
+                    <p class="section-title-sm">Butuh audit jaringan, upgrade CCTV, atau integrasi PMS/POS? Mari diskusi — respon cepat.</p>
                 </div>
 
-                <div class="contact-grid">
+                <div class="contact-grid reveal">
                     <div class="contact-left">
                         <div>
-                            <h3>Mari Bekerja Sama</h3>
-                            <p class="desc">Siap membantu kebutuhan IT infrastruktur hotel Anda. Silakan hubungi saya melalui form atau kontak di samping.</p>
-                            <div class="info-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                                <span>offcrivaldi@gmail.com</span>
-                            </div>
-                            <div class="info-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                                <span>Malang, Jawa Timur</span>
+                            <h3>Mari Bangun IT yang Andal</h3>
+                            <p class="desc">Saya siap bantu asesmen awal gratis untuk kebutuhan cluster hotel Anda. Hubungi via form, email, atau WhatsApp untuk respon tercepat.</p>
+                        </div>
+                        <div class="contact-cards">
+                            <a href="mailto:offcrivaldi@gmail.com" class="contact-card">
+                                <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+                                <div><strong>offcrivaldi@gmail.com</strong><span>Kirim email langsung</span></div>
+                            </a>
+                            <a href="https://wa.me/6283849918685" target="_blank" class="contact-card">
+                                <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4 12a19.5 19.5 0 0 1 3.07-8.63A19.79 19.79 0 0 1 10.14 2a2 2 0 0 1 2 .18v3a2 2 0 0 1-.57 1.36l-1.27 1.27a16 16 0 0 0 5.07 5.07l1.27-1.27A2 2 0 0 1 18 12v.92a2 2 0 0 1-2 2z"/></svg></div>
+                                <div><strong>+62 838-4991-8685</strong><span>WhatsApp • Fast Response</span></div>
+                            </a>
+                            <div class="contact-card">
+                                <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                                <div><strong>Malang, Jawa Timur</strong><span>Support untuk area Jawa Timur & remote cluster</span></div>
                             </div>
                         </div>
-                        <div class="contact-quote">
-                            "It's dangerous to go alone! Take this."
+                        <div class="card-subtle" style="padding: 20px 22px; border-radius: 16px;">
+                            <div style="font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;">Komitmen Layanan</div>
+                            <div style="display: grid; gap: 10px; font-size: 0.88rem; line-height: 1.5;">
+                                <div style="display:flex; gap:10px; align-items:center;"><span style="width:8px; height:8px; border-radius:50%; background: var(--accent); display:inline-block; flex-shrink:0;"></span> Dokumentasi & SOP yang rapi dan terstandar</div>
+                                <div style="display:flex; gap:10px; align-items:center;"><span style="width:8px; height:8px; border-radius:50%; background: var(--accent); display:inline-block; flex-shrink:0;"></span> Keamanan jaringan sebagai prioritas utama</div>
+                                <div style="display:flex; gap:10px; align-items:center;"><span style="width:8px; height:8px; border-radius:50%; background: var(--accent); display:inline-block; flex-shrink:0;"></span> Support berkelanjutan & kemudahan scale antar properti</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-subtle contact-form-wrap">
-                        <form class="contact-form" onsubmit="handleSubmit(event)">
-                            <div class="fields">
-                                <input type="text" id="name" placeholder="Nama" required>
-                                <input type="email" id="email" placeholder="hello@domain.com" required>
-                                <input type="text" id="subject" placeholder="Subjek" required>
-                                <textarea id="message" rows="4" placeholder="Pesan" required></textarea>
+                    <div class="contact-form-wrap">
+                        <form class="contact-form" onsubmit="handleSubmit(event)" novalidate>
+                            <div class="form-group">
+                                <label for="name">Nama</label>
+                                <input type="text" id="name" placeholder="Nama lengkap Anda" required autocomplete="name">
                             </div>
-                            <div class="form-footer">
-                                <button type="submit" class="submit-btn">
-                                    KIRIM PESAN
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                                </button>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="nama@perusahaan.com" required autocomplete="email">
                             </div>
+                            <div class="form-group">
+                                <label for="subject">Kebutuhan</label>
+                                <input type="text" id="subject" placeholder="Contoh: Audit Jaringan Hotel / Integrasi PMS" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Pesan</label>
+                                <textarea id="message" rows="4" placeholder="Ceritakan kebutuhan, jumlah properti, dan kendala saat ini..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                Kirim Pesan
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2Z"/></svg>
+                            </button>
+                            <p class="form-note">Dengan mengirim form, email akan terbuka via aplikasi email Anda. Data tidak disimpan di server.</p>
                         </form>
                     </div>
                 </div>
@@ -1093,37 +627,47 @@
         </section>
     </div>
 
-    <div class="footer-bar">
+    <footer class="footer-bar">
         <div class="container">
-            <p>&copy; 2026 Rivaldi Wibowo</p>
+            <div class="footer-inner">
+                <p>&copy; 2026 Rivaldi Wibowo — IT Cluster Specialist • Malang</p>
+                <div class="footer-links">
+                    <a href="mailto:offcrivaldi@gmail.com">Email</a>
+                    <a href="https://github.com/offcrivaldi-hash" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/rivaldiwe/" target="_blank">LinkedIn</a>
+                    <a href="https://rivaldi.id">rivaldi.id</a>
+                </div>
+            </div>
         </div>
-    </div>
+    </footer>
 
     <script>
         var body = document.body;
         var themeBtn = document.querySelector('.theme-btn');
-
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        var savedTheme = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
             body.classList.add('dark');
             themeBtn.textContent = 'LIGHT';
         }
-
         function toggleTheme() {
             body.classList.toggle('dark');
-            themeBtn.textContent = body.classList.contains('dark') ? 'LIGHT' : 'DARK';
+            var isDark = body.classList.contains('dark');
+            themeBtn.textContent = isDark ? 'LIGHT' : 'DARK';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
         }
-
         document.querySelectorAll('a[href^="#"]').forEach(function(a) {
             a.addEventListener('click', function(e) {
-                e.preventDefault();
-                var t = document.querySelector(this.getAttribute('href'));
-                if (t) t.scrollIntoView({ behavior: 'smooth' });
+                var href = this.getAttribute('href');
+                if (href.length > 1) {
+                    e.preventDefault();
+                    var t = document.querySelector(href);
+                    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
         });
-
         var filterBtns = document.querySelectorAll('.filter-btn');
         var cards = document.querySelectorAll('.project-card');
-
         filterBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
                 filterBtns.forEach(function(b) { b.classList.remove('active'); });
@@ -1138,22 +682,46 @@
                 });
             });
         });
-
         function handleSubmit(e) {
             e.preventDefault();
+            var name = document.getElementById('name').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var subject = document.getElementById('subject').value.trim();
+            var message = document.getElementById('message').value.trim();
+            if (!name || !email || !subject || !message) return;
             var btn = e.target.querySelector('.submit-btn');
-            var text = btn.textContent;
-            btn.textContent = 'MENGIRIM...';
+            var originalHTML = btn.innerHTML;
+            btn.innerHTML = 'Membuka Email...';
             btn.disabled = true;
+            var mailSubject = encodeURIComponent('[rivaldi.id] ' + subject + ' — dari ' + name);
+            var mailBody = encodeURIComponent('Halo Rivaldi,%0D%0A%0D%0ASaya ' + name + ' (' + email + ')%0D%0A%0D%0AKebutuhan: ' + subject + '%0D%0A%0D%0APesan:%0D%0A' + message + '%0D%0A%0D%0A---%0D%0ADikirim dari rivaldi.id');
+            window.location.href = 'mailto:offcrivaldi@gmail.com?subject=' + mailSubject + '&body=' + mailBody;
             setTimeout(function() {
-                btn.textContent = 'PESAN TERKIRIM!';
+                btn.innerHTML = '✓ Pesan Siap Dikirim';
                 setTimeout(function() {
-                    btn.textContent = text;
+                    btn.innerHTML = originalHTML;
                     btn.disabled = false;
-                    e.target.reset();
-                }, 2500);
-            }, 1500);
+                }, 2000);
+            }, 800);
         }
+        // reveal on scroll
+        var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if(entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+        // active nav on scroll
+        var sections = document.querySelectorAll('section[id]');
+        var navLinks = document.querySelectorAll('.nav-links a');
+        window.addEventListener('scroll', function(){
+            var scrollPos = window.scrollY + 100;
+            sections.forEach(function(sec){
+                if(scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight){
+                    navLinks.forEach(function(l){ l.classList.remove('active'); if(l.getAttribute('href') === '#' + sec.id) l.classList.add('active'); });
+                }
+            });
+        });
     </script>
 </body>
 </html>
