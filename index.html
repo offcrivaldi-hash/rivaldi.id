@@ -112,6 +112,10 @@
         .theme-btn { background: var(--text); color: var(--bg); border: 1px solid transparent; padding: 7px 16px; border-radius: var(--radius-pill); cursor: pointer; font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.5px; transition: all 0.2s; }
         .dark .theme-btn { background: transparent; color: var(--text); border-color: var(--border-strong); }
         .theme-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+        .nav-actions { display: flex; gap: 8px; align-items: center; }
+        .lang-btn { background: var(--bg-card); color: var(--text); border: 1px solid var(--border-strong); padding: 7px 14px; border-radius: var(--radius-pill); cursor: pointer; font-family: var(--font-mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.8px; transition: all 0.2s; }
+        .lang-btn:hover { border-color: var(--text); transform: translateY(-1px); }
+        .lang-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
         /* Hero */
         .hero { position: relative; z-index: 1; min-height: 92vh; display: flex; align-items: center; padding: 96px 0 48px; }
@@ -324,13 +328,16 @@
         <div class="inner">
             <a href="#" class="logo">Rivaldi.<span>W</span> <small>IT Cluster Specialist</small></a>
             <ul class="nav-links">
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#experience">Pengalaman</a></li>
-                <li><a href="#expertise">Keahlian</a></li>
-                <li><a href="#projects">Proyek</a></li>
-                <li><a href="#contact" class="nav-cta">Hubungi Saya</a></li>
+                <li><a href="#about" data-i18n="nav_about">Tentang</a></li>
+                <li><a href="#experience" data-i18n="nav_exp">Pengalaman</a></li>
+                <li><a href="#expertise" data-i18n="nav_skills">Keahlian</a></li>
+                <li><a href="#projects" data-i18n="nav_projects">Proyek</a></li>
+                <li><a href="#contact" class="nav-cta" data-i18n="nav_contact">Hubungi Saya</a></li>
             </ul>
-            <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">DARK</button>
+            <div class="nav-actions">
+                <button class="lang-btn" onclick="toggleLang()" aria-label="Switch language" id="langBtn">EN</button>
+                <button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">DARK</button>
+            </div>
         </div>
     </nav>
 
@@ -340,23 +347,23 @@
                 <div class="hero-left">
                     <div class="hero-badge">
                         <span class="dot"></span>
-                        Available for Projects • Malang, ID
+                        <span data-i18n="hero_badge">Available for Projects • Malang, ID</span>
                     </div>
                     <h1>
                         Rivaldi<br>
                         <span class="dim">Wibowo</span>
                     </h1>
-                    <p class="hero-sub">IT Cluster Specialist <span>— Hospitality Technology</span></p>
-                    <p class="hero-desc">
+                    <p class="hero-sub" data-i18n="hero_sub">IT Cluster Specialist — Hospitality Technology</p>
+                    <p class="hero-desc" data-i18n="hero_desc">
                         Saya membantu cluster hotel membangun infrastruktur IT yang <strong>andal, aman, dan scalable</strong> — dari desain jaringan enterprise, CCTV & server, hingga pengelolaan Windows Server, database, cloud dan VPN antar properti.
                     </p>
                     <div class="hero-actions">
                         <a href="#contact" class="btn-primary">
-                            Konsultasi Gratis
+                            <span data-i18n="hero_cta1">Konsultasi Gratis</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>
                         <a href="#projects" class="btn-secondary">
-                            Lihat Proyek
+                            <span data-i18n="hero_cta2">Lihat Proyek</span>
                         </a>
                     </div>
                     <div class="hero-stats">
@@ -402,10 +409,10 @@
             <div class="container">
                 <div class="about-grid reveal">
                     <div class="card-subtle about-card">
-                        <h3>Tentang Saya</h3>
-                        <p>Saya <strong>Rivaldi Wibowo</strong>, <strong>IT Cluster Specialist</strong> berbasis di <strong>Malang, Jawa Timur</strong>, berfokus pada infrastruktur teknologi untuk industri perhotelan.</p>
+                        <h3 data-i18n="about_title">Tentang Saya</h3>
+                        <p data-i18n="about_p1">Saya <strong>Rivaldi Wibowo</strong>, <strong>IT Cluster Specialist</strong> berbasis di <strong>Malang, Jawa Timur</strong>, berfokus pada infrastruktur teknologi untuk industri perhotelan.</p>
                         <br>
-                        <p>Berpengalaman dalam perancangan dan pengelolaan infrastruktur IT untuk operasional hotel — meliputi <strong>segmentasi VLAN & redundancy, WiFi enterprise, CCTV/Surveillance, VPN site-to-site</strong>, hingga <strong>pengelolaan Windows Server, database & layanan cloud</strong>. Fokus utama: memastikan operasional yang stabil, aman, dan skalabel antar properti dalam satu cluster.</p>
+                        <p data-i18n="about_p2">Berpengalaman dalam perancangan dan pengelolaan infrastruktur IT untuk operasional hotel — meliputi <strong>segmentasi VLAN & redundancy, WiFi enterprise, CCTV/Surveillance, VPN site-to-site</strong>, hingga <strong>pengelolaan Windows Server, database & layanan cloud</strong>. Fokus utama: memastikan operasional yang stabil, aman, dan skalabel antar properti dalam satu cluster.</p>
                         <div class="about-highlights">
                             <span>Malang • Jawa Timur</span>
                             <span>Hospitality Focused</span>
@@ -415,8 +422,8 @@
                     </div>
                     <a href="#expertise" class="creative-card">
                         <div>
-                            <h4>Solusi IT<br>Terintegrasi</h4>
-                            <p>Dari backbone jaringan hingga integrasi aplikasi hotel — satu tim, satu standar, untuk seluruh cluster.</p>
+                            <h4 data-i18n="creative_title">Solusi IT<br>Terintegrasi</h4>
+                            <p data-i18n="creative_desc">Dari backbone jaringan hingga integrasi aplikasi hotel — satu tim, satu standar, untuk seluruh cluster.</p>
                         </div>
                         <div class="arrow">
                             <div>
@@ -431,8 +438,8 @@
         <section id="experience" class="experience-section">
             <div class="container">
                 <div class="section-header reveal">
-                    <h2 class="section-title-lg">Pengalaman</h2>
-                    <p class="section-title-sm">Perjalanan profesional di industri hospitality — dari operasional harian hingga standardisasi cluster</p>
+                    <h2 class="section-title-lg" data-i18n="exp_title">Pengalaman</h2>
+                    <p class="section-title-sm" data-i18n="exp_sub">Perjalanan profesional di industri hospitality — dari operasional harian hingga standardisasi cluster</p>
                 </div>
                 <div class="exp-grid reveal">
                     <div class="card-subtle exp-main">
@@ -486,8 +493,8 @@
         <section id="expertise" class="expertise-section">
             <div class="container">
                 <div class="section-header reveal">
-                    <h2 class="section-title-lg">Keahlian</h2>
-                    <p class="section-title-sm">Fokus pada keandalan operasional hotel — jaringan, keamanan, dan sistem yang saling terhubung</p>
+                    <h2 class="section-title-lg" data-i18n="skills_title">Keahlian</h2>
+                    <p class="section-title-sm" data-i18n="skills_sub">Fokus pada keandalan operasional hotel — jaringan, keamanan, dan sistem yang saling terhubung</p>
                 </div>
                 <div class="expertise-grid reveal">
                     <div class="expertise-card">
@@ -533,8 +540,8 @@
         <section id="projects">
             <div class="container">
                 <div class="section-header reveal">
-                    <h2 class="section-title-lg">Proyek</h2>
-                    <p class="section-title-sm">Seleksi proyek infrastruktur IT yang dirancang untuk keandalan operasional hospitality</p>
+                    <h2 class="section-title-lg" data-i18n="proj_title">Proyek</h2>
+                    <p class="section-title-sm" data-i18n="proj_sub">Seleksi proyek infrastruktur IT yang dirancang untuk keandalan operasional hospitality</p>
                 </div>
 
                 <div class="filter-row reveal">
@@ -644,8 +651,8 @@
         <section id="contact">
             <div class="container">
                 <div class="section-header reveal">
-                    <h2 class="section-title-lg">Kontak</h2>
-                    <p class="section-title-sm">Butuh audit jaringan, upgrade CCTV, atau pengelolaan server & database? Mari diskusi — respon cepat.</p>
+                    <h2 class="section-title-lg" data-i18n="contact_title">Kontak</h2>
+                    <p class="section-title-sm" data-i18n="contact_sub">Butuh audit jaringan, upgrade CCTV, atau pengelolaan server & database? Mari diskusi — respon cepat.</p>
                 </div>
 
                 <div class="contact-grid reveal">
@@ -802,6 +809,57 @@
                 }
             });
         });
+        // i18n EN/ID
+        var translations = {
+            id: {
+                nav_about: "Tentang", nav_exp: "Pengalaman", nav_skills: "Keahlian", nav_projects: "Proyek", nav_contact: "Hubungi Saya",
+                hero_badge: "Available for Projects • Malang, ID",
+                hero_sub: "IT Cluster Specialist — Hospitality Technology",
+                hero_desc: "Saya membantu cluster hotel membangun infrastruktur IT yang <strong>andal, aman, dan scalable</strong> — dari desain jaringan enterprise, CCTV & server, hingga pengelolaan Windows Server, database, cloud dan VPN antar properti.",
+                hero_cta1: "Konsultasi Gratis", hero_cta2: "Lihat Proyek",
+                about_title: "Tentang Saya",
+                about_p1: "Saya <strong>Rivaldi Wibowo</strong>, <strong>IT Cluster Specialist</strong> berbasis di <strong>Malang, Jawa Timur</strong>, berfokus pada infrastruktur teknologi untuk industri perhotelan.",
+                about_p2: "Berpengalaman dalam perancangan dan pengelolaan infrastruktur IT untuk operasional hotel — meliputi <strong>segmentasi VLAN & redundancy, WiFi enterprise, CCTV/Surveillance, VPN site-to-site</strong>, hingga <strong>pengelolaan Windows Server, database & layanan cloud</strong>. Fokus utama: memastikan operasional yang stabil, aman, dan skalabel antar properti dalam satu cluster.",
+                creative_title: "Solusi IT<br>Terintegrasi", creative_desc: "Dari backbone jaringan hingga integrasi aplikasi hotel — satu tim, satu standar, untuk seluruh cluster.",
+                exp_title: "Pengalaman", exp_sub: "Perjalanan profesional di industri hospitality — dari operasional harian hingga standardisasi cluster",
+                skills_title: "Keahlian", skills_sub: "Fokus pada keandalan operasional hotel — jaringan, keamanan, dan sistem yang saling terhubung",
+                proj_title: "Proyek", proj_sub: "Seleksi proyek infrastruktur IT yang dirancang untuk keandalan operasional hospitality",
+                contact_title: "Kontak", contact_sub: "Butuh audit jaringan, upgrade CCTV, atau pengelolaan server & database? Mari diskusi — respon cepat."
+            },
+            en: {
+                nav_about: "About", nav_exp: "Experience", nav_skills: "Expertise", nav_projects: "Projects", nav_contact: "Contact Us",
+                hero_badge: "Available for Projects • Malang, ID",
+                hero_sub: "IT Cluster Specialist — Hospitality Technology",
+                hero_desc: "I help hotel clusters build <strong>reliable, secure and scalable</strong> IT infrastructure — from enterprise network design, CCTV & servers to Windows Server, database, cloud and inter-property VPN.",
+                hero_cta1: "Free Consultation", hero_cta2: "View Projects",
+                about_title: "About Me",
+                about_p1: "I am <strong>Rivaldi Wibowo</strong>, <strong>IT Cluster Specialist</strong> based in <strong>Malang, East Java</strong>, focused on hospitality technology infrastructure.",
+                about_p2: "Experienced in designing and managing IT infrastructure for hotel operations — including <strong>VLAN segmentation & redundancy, enterprise WiFi, CCTV/Surveillance, site-to-site VPN</strong>, to <strong>Windows Server, database & cloud services</strong>. Focus: ensuring stable, secure and scalable operations across properties in a cluster.",
+                creative_title: "Integrated IT<br>Solutions", creative_desc: "From network backbone to hotel application integration — one team, one standard, for the entire cluster.",
+                exp_title: "Experience", exp_sub: "Professional journey in hospitality — from daily operations to cluster standardization",
+                skills_title: "Expertise", skills_sub: "Focused on hotel operational reliability — network, security and interconnected systems",
+                proj_title: "Projects", proj_sub: "Selected IT infrastructure projects designed for hospitality operational reliability",
+                contact_title: "Contact", contact_sub: "Need a network audit, CCTV upgrade, or server & database management? Let’s talk — fast response."
+            }
+        };
+        var currentLang = localStorage.getItem('lang') || 'id';
+        var langBtn = document.getElementById('langBtn');
+        function applyLang(lang){
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            localStorage.setItem('lang', lang);
+            langBtn.textContent = lang === 'id' ? 'EN' : 'ID';
+            document.querySelectorAll('[data-i18n]').forEach(function(el){
+                var key = el.getAttribute('data-i18n');
+                if(translations[lang] && translations[lang][key]){
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+        function toggleLang(){
+            applyLang(currentLang === 'id' ? 'en' : 'id');
+        }
+        applyLang(currentLang);
     </script>
 </body>
 </html>
