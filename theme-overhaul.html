@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rivaldi Wibowo — IT Cluster Specialist</title>
+<meta name="description" content="Rivaldi Wibowo — IT Leader Citihub Hotel Management. Network, CCTV, Windows Server & Database, VPN (L2TP/PPTP/SSTP/IPSec/WireGuard). Malang.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{ --bg:#0a0a0a; --bg2:#111111; --line:#232323; --text:#f5f5f5; --muted:#9a9a9a; --accent:#e8ff57; --accent2:#00ffa6; }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Space Grotesk",system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+a{color:inherit;text-decoration:none}
+.mono{font-family:"IBM Plex Mono",monospace}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+@media(min-width:768px){.container{padding:0 28px}}
+/* top bar */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,10,10,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .inner{max-width:1200px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+@media(min-width:768px){.topbar .inner{padding:14px 28px}}
+.logo{font-family:"Instrument Serif",serif;font-size:22px;letter-spacing:-0.5px}
+.logo i{font-style:italic;font-weight:400;color:var(--accent)}
+.nav{display:none;gap:22px;align-items:center}
+@media(min-width:860px){.nav{display:flex}}
+.nav a{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;opacity:0.6}
+.nav a:hover{opacity:1;color:var(--accent)}
+.pill{padding:8px 14px;border:1px solid var(--line);border-radius:999px;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+.pill.accent{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.pill.ghost:hover{border-color:var(--text)}
+/* hero - completely new layout */
+.hero{padding:88px 0 32px; border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:28px}
+@media(min-width:960px){.hero-grid{grid-template-columns: 1.15fr 0.85fr;gap:40px;align-items:center}}
+.kicker{display:inline-flex;gap:10px;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:#141414}
+.kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 0 6px rgba(0,255,166,0.15)}
+.kicker span{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;opacity:0.8}
+.hero h1{font-family:"Instrument Serif",serif;font-size:48px;line-height:0.9;letter-spacing:-1.5px;font-weight:400;margin:18px 0 14px}
+@media(min-width:480px){.hero h1{font-size:64px}}
+@media(min-width:768px){.hero h1{font-size:84px;letter-spacing:-3px}}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero .sub{font-size:15px;color:var(--muted);max-width:560px}
+@media(min-width:768px){.hero .sub{font-size:17px}}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.hero-stats strong{font-family:"Instrument Serif",serif;font-size:22px;font-weight:400;display:block}
+.hero-stats span{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.8px;text-transform:uppercase;opacity:0.5}
+.hero-visual{position:relative;border:1px solid var(--line);background:var(--bg2);border-radius:18px;overflow:hidden;padding:14px}
+.hero-visual img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;display:block;filter:grayscale(1);transition:filter 0.4s}
+.hero-visual:hover img{filter:grayscale(0)}
+.badge{position:absolute;padding:8px 10px;background:#f5f5f5;color:#000;border-radius:10px;border:1px solid #e5e5e5;box-shadow:0 8px 24px rgba(0,0,0,0.25);display:flex;gap:10px;align-items:center}
+.badge .ic{width:28px;height:28px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center}
+.badge b{font-size:12px;line-height:1}
+.badge small{font-family:"IBM Plex Mono",monospace;font-size:8px;letter-spacing:0.6px;text-transform:uppercase;opacity:0.6;display:block}
+.badge.tl{top:20px;right:16px;transform:rotate(1deg)}
+.badge.bl{bottom:20px;left:16px;transform:rotate(-1deg)}
+@media(max-width:480px){.badge.tl{top:12px;right:10px}.badge.bl{bottom:12px;left:10px}}
+/* sections */
+.section{padding:48px 0;border-bottom:1px solid var(--line)}
+@media(min-width:768px){.section{padding:64px 0}}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:0.5;display:flex;gap:10px;align-items:center;margin-bottom:14px}
+.eyebrow::before{content:"";width:24px;height:1px;background:var(--accent)}
+.section h2{font-family:"Instrument Serif",serif;font-size:36px;line-height:0.95;letter-spacing:-1px;font-weight:400}
+@media(min-width:768px){.section h2{font-size:52px}}
+.section .lead{color:var(--muted);max-width:620px;margin-top:12px;font-size:14px}
+@media(min-width:768px){.section .lead{font-size:15px}}
+/* about bento */
+.about-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:24px}
+@media(min-width:860px){.about-grid{grid-template-columns:1.6fr 0.9fr}}
+.card{border:1px solid var(--line);background:var(--bg2);border-radius:16px;padding:20px}
+@media(min-width:768px){.card{padding:24px}}
+.card h3{font-family:"Instrument Serif",serif;font-size:22px;font-weight:400;letter-spacing:-0.5px}
+.card p{color:var(--muted);font-size:13px;line-height:1.7;margin-top:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips span{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:0.6px;text-transform:uppercase;padding:6px 9px;border:1px solid var(--line);border-radius:999px;background:#141414}
+.tall{display:flex;flex-direction:column;justify-content:space-between;min-height:100%}
+.tall .arrow{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#000;display:flex;align-items:center;justify-content:center;margin-top:18px}
+/* experience timeline */
+.timeline{margin-top:22px;display:grid;gap:14px}
+@media(min-width:960px){.timeline{grid-template-columns:1.5fr 0.85fr}}
+.job{border:1px solid var(--line);background:var(--bg2);border-radius:16px;padding:20px}
+@media(min-width:768px){.job{padding:24px}}
+.job-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:14px}
+.job-head h3{font-family:"Space Grotesk",sans-serif;font-size:16px;font-weight:700;letter-spacing:-0.3px}
+.job-head p{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:0.6px;text-transform:uppercase;opacity:0.5;margin-top:4px}
+.tag{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:0.8px;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:var(--accent);color:#000;font-weight:700;white-space:nowrap}
+.bullets{list-style:none;display:grid;gap:10px}
+.bullets li{position:relative;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.65}
+.bullets li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.stack{display:grid;gap:8px;margin-top:14px}
+.stack span{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:0.6px;text-transform:uppercase;padding:7px 10px;border:1px solid var(--line);border-radius:10px;background:#141414;display:inline-block}
+/* skills bento */
+.skills{display:grid;grid-template-columns:1fr;gap:12px;margin-top:22px}
+@media(min-width:640px){.skills{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.skills{grid-template-columns:repeat(3,1fr)}}
+.skill{border:1px solid var(--line);background:var(--bg2);border-radius:16px;padding:18px;position:relative;overflow:hidden}
+.skill::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0.6}
+.skill h4{font-size:13px;letter-spacing:-0.2px;text-transform:uppercase;font-weight:700}
+.skill p{color:var(--muted);font-size:12px;line-height:1.6;margin-top:8px;min-height:48px}
+.skill ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.skill li{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.6px;text-transform:uppercase;padding:5px 7px;border:1px solid var(--line);border-radius:6px;background:#141414}
+/* projects - list style, not cards */
+.projects{margin-top:22px;display:grid;gap:12px}
+.proj{border:1px solid var(--line);background:var(--bg2);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:768px){.proj{grid-template-columns:280px 1fr}}
+.proj img{width:100%;height:200px;object-fit:cover;display:block;filter:grayscale(1)}
+@media(min-width:768px){.proj img{height:100%;min-height:200px}}
+.proj:hover img{filter:grayscale(0)}
+.proj-body{padding:18px}
+@media(min-width:768px){.proj-body{padding:20px 22px}}
+.proj-body .cat{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;opacity:0.5}
+.proj-body h3{font-family:"Instrument Serif",serif;font-size:22px;font-weight:400;letter-spacing:-0.3px;margin:6px 0 8px}
+.proj-body p{color:var(--muted);font-size:12px;line-height:1.65}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.proj-tags span{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:0.5px;text-transform:uppercase;padding:5px 8px;border:1px solid var(--line);border-radius:999px;background:#141414}
+/* contact */
+.contact{display:grid;grid-template-columns:1fr;gap:14px;margin-top:22px}
+@media(min-width:960px){.contact{grid-template-columns:0.9fr 1.1fr}}
+.contact .side{display:grid;gap:12px}
+.mini{border:1px solid var(--line);background:var(--bg2);border-radius:16px;padding:16px;display:flex;gap:12px;align-items:center}
+.mini .ic{width:36px;height:36px;border-radius:10px;background:#1a1a1a;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mini b{font-size:13px;display:block}
+.mini span{font-family:"IBM Plex Mono",monospace;font-size:11px;opacity:0.6}
+.form{border:1px solid var(--line);background:var(--bg2);border-radius:16px;padding:18px}
+@media(min-width:768px){.form{padding:22px}}
+.field{margin-bottom:12px}
+.field label{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;opacity:0.6;display:block;margin-bottom:6px}
+.field input,.field textarea{width:100%;background:#0f0f0f;border:1px solid var(--line);border-radius:10px;padding:11px 12px;color:var(--text);font-family:"Space Grotesk",sans-serif;font-size:13px;outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--accent)}
+.btn{width:100%;padding:12px;border-radius:999px;border:1px solid var(--accent);background:var(--accent);color:#000;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;cursor:pointer}
+.btn:hover{filter:brightness(0.95)}
+.note{font-family:"IBM Plex Mono",monospace;font-size:10px;opacity:0.5;text-align:center;margin-top:10px}
+/* footer */
+.footer{padding:20px 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:space-between}
+@media(min-width:640px){.footer{flex-direction:row}}
+.footer p{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;opacity:0.4}
+.footer a{font-family:"IBM Plex Mono",monospace;font-size:10px;opacity:0.6}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="inner">
+    <a href="#" class="logo">Rivaldi.<i>W</i></a>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#exp">Experience</a>
+      <a href="#skills">Stack</a>
+      <a href="#projects">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="pill ghost" onclick="toggleLang()" id="langBtn">ID</button>
+      <a href="#contact" class="pill accent">Hire Me →</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker"><span class="dot"></span><span data-i18n="hero_badge">Available for Projects • Malang, ID</span></div>
+        <h1>RIVALDI<br><em>WIBOWO</em></h1>
+        <p class="mono" style="font-size:12px;letter-spacing:1px;text-transform:uppercase;opacity:0.6;margin-bottom:10px">IT Cluster Specialist — Malang • Surabaya • Citihub Hotels — sejak 2018</p>
+        <p class="sub">Kerja saya simpel: bikin jaringan hotel nggak rewel. Tamu senang, resepsionis nggak komplain WiFi. Kalau CCTV mati atau VPN Malang–Surabaya putus jam 9 malam — saya yang ditelepon. Bukan tim dev besar, saya yang datang, cek rack, dan beresin sampai beres.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/6285735038001" target="_blank" class="pill accent" data-i18n="hero_cta1">Chat on WhatsApp →</a>
+          <a href="#projects" class="pill ghost" data-i18n="hero_cta2">View Work</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>7+ yrs</strong><span>Cluster Ops</span></div>
+          <div><strong>24/7</strong><span>Uptime Focus</span></div>
+          <div><strong>All-in</strong><span>Network • CCTV • Server</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" style="transform:rotate(-0.4deg)">
+        <img src="https://avatars.githubusercontent.com/u/271122148?v=4" alt="Rivaldi Wibowo — foto asli, bukan AI">
+        <div class="badge tl"><div class="ic">◈</div><div><b>Kerja sampai beres</b><small>Nggak cuma remote</small></div></div>
+        <div class="badge bl"><div class="ic">◎</div><div><b>WA Aktif</b><small>0857-3503-8001 • IM3</small></div></div>
+        <div style="margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:9px;opacity:0.4;text-align:center">Foto profil — asli, habis shift, bukan generate AI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="eyebrow">About</div>
+    <h2>Buat hotel<br>yang nggak boleh mati.</h2>
+    <p class="lead">Saya ngurusin hal-hal yang nggak kelihatan tamu — tapi kerasa kalau mati: VLAN, WiFi, CCTV, VPN, Windows Server & database. Semua harus jalan 24 jam, antar properti sinkron.</p>
+    <div class="about-grid">
+      <div class="card">
+        <h3>Saya Rivaldi — yang megang di lapangan.</h3>
+        <p>Saya di Citihub Hotel Management sejak Maret 2018. Bukan cuma setting di balik meja — saya yang naik plafon cek kabel, ganti AP di lobby, sampai audit CCTV satu-satu. Pernah salah VLAN bikin 1 lantai mati 20 menit — sejak itu SOP saya ketat, dokumentasi wajib.</p>
+        <p style="margin-top:10px;font-size:12px;opacity:0.6">Harian pegang: MikroTik, Ruijie, TP-Link • Hikvision, Dahua/Alhua, Ezviz, Videotron • L2TP/PPTP/SSTP/IPSec/WireGuard</p>
+        <div class="chips"><span>Malang • Surabaya</span><span>Citihub • 7+ tahun</span><span>Datang kalau dipanggil</span></div>
+      </div>
+      <div class="card tall" style="background:var(--accent);color:#000;border-color:var(--accent)">
+        <div>
+          <h3 style="color:#000">Satu standar,<br>semua properti.</h3>
+          <p style="color:rgba(0,0,0,0.7)">Biar nggak pusing tiap hotel beda setting. Dari backbone sampai password WiFi — saya bikin satu SOP, satu dokumentasi. Anak baru pun bisa lanjutin.</p>
+        </div>
+        <div style="margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.6">— catatan di buku lapangan, bukan cuma di laptop</div>
+        <a href="#exp" class="arrow">→</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="exp">
+  <div class="container">
+    <div class="eyebrow">2018 — sekarang</div>
+    <h2>7+ tahun muter<br>Malang–Surabaya.</h2>
+    <p class="lead">Nggak ada kantor pusat yang megah — kerjaan saya muter properti, bawa koper isinya crimping tool, backup router, dan tester kabel.</p>
+    <div class="timeline">
+      <div class="job">
+        <div class="job-head">
+          <div><h3>IT Leader — Citihub Hotel Management</h3><p>Malang & Surabaya • Mar 2018 — Present</p></div>
+          <span class="tag">Citihub Group</span>
+        </div>
+        <ul class="bullets">
+          <li>Muter Malang–Surabaya — pastiin semua properti online, jaringan nggak lemot, VPN nggak putus.</li>
+          <li>Upgrade sistem: VPN (L2TP/PPTP/SSTP/IPSec/WireGuard), WiFi AP, Windows Server, database & cloud — yang error saya beresin.</li>
+          <li>Pasang hardware, tarik kabel, tambah CCTV — sampai mounting videotron di lobby juga pernah.</li>
+          <li>Audit keamanan — cek siapa bobol, siapa salah colok. Best practice saya tulis, bukan dihafal.</li>
+          <li>Bikin SOP & dokumentasi — biar kalau saya cuti, tim tetap jalan.</li>
+          <li>Urusan vendor & troubleshooting tengah malam — kalau down, saya yang angkat telepon, bukan CS.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 data-i18n="tech_title">Devices & Technologies</h3>
+        <p class="mono" style="font-size:11px;letter-spacing:0.8px;text-transform:uppercase;opacity:0.5;margin-top:6px" data-i18n="tech_sub">Managed daily in the cluster</p>
+        <div class="stack">
+          <span>MikroTik • Ruijie • TP-Link</span>
+          <span>Hikvision • Dahua / Alhua • Ezviz • Videotron</span>
+          <span>Windows Server • NVR / DVR • IP Camera</span>
+          <span>L2TP • PPTP • SSTP • IPSec • WireGuard</span>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:14px" data-i18n="tech_note_desc">No certifications — strength in field implementation and standardization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="container">
+    <div class="eyebrow">Stack</div>
+    <h2>What I run<br>every day.</h2>
+    <div class="skills">
+      <div class="skill"><h4>Network & Infra</h4><p>Enterprise design, VLAN, QoS, failover with MikroTik & Ruijie.</p><ul><li>MikroTik</li><li>Ruijie</li><li>VLAN</li><li>Hotspot</li></ul></div>
+      <div class="skill"><h4>Windows & DB</h4><p>Windows Server, SQL, cloud — stable & centralized.</p><ul><li>Windows Server</li><li>SQL</li><li>Cloud</li><li>Database</li></ul></div>
+      <div class="skill"><h4>CCTV</h4><p>Hikvision, Dahua, Ezviz, NVR/DVR centralized.</p><ul><li>Hikvision</li><li>Dahua</li><li>Ezviz</li><li>NVR</li></ul></div>
+      <div class="skill"><h4>Server • Virtual</h4><p>Linux, Proxmox, backup & DR.</p><ul><li>Linux</li><li>Proxmox</li><li>Backup</li><li>DR</li></ul></div>
+      <div class="skill" style="border-color:var(--accent)"><h4>VPN • Security</h4><p>L2TP, PPTP, SSTP, IPSec, WireGuard — encrypted.</p><ul><li>L2TP</li><li>SSTP</li><li>WireGuard</li><li>IPSec</li></ul></div>
+      <div class="skill"><h4>Ops</h4><p>SOP, monitoring, helpdesk, training.</p><ul><li>SOP</li><li>Monitoring</li><li>Helpdesk</li><li>Training</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="container">
+    <div class="eyebrow">Selected Work</div>
+    <h2>Real problems,<br>real hotels.</h2>
+    <div class="projects">
+      <div class="proj"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=450&fit=crop" alt=""><div class="proj-body"><div class="cat">Network • Citihub Cluster</div><h3>Cluster Network Upgrade</h3><p>Enterprise backbone, VLAN Guest/Staff/IoT/CCTV, redundant gateway & SOP. More stable, ready to scale.</p><div class="proj-tags"><span>MikroTik</span><span>Ruijie</span><span>VLAN</span><span>Failover</span></div></div></div>
+      <div class="proj"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600&h=450&fit=crop" alt=""><div class="proj-body"><div class="cat">Security • CCTV</div><h3>Centralized CCTV</h3><p>Hikvision, Dahua, Ezviz + NVR/DVR, segmented via MikroTik/Ruijie. Central monitoring, efficient maintenance.</p><div class="proj-tags"><span>Hikvision</span><span>Dahua</span><span>Ezviz</span><span>NVR</span></div></div></div>
+      <div class="proj"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=450&fit=crop" alt=""><div class="proj-body"><div class="cat">Infra</div><h3>Server & Backup</h3><p>Virtualization, encrypted daily backup & DR for hotel continuity.</p><div class="proj-tags"><span>Proxmox</span><span>Backup</span><span>DR</span><span>Linux</span></div></div></div>
+      <div class="proj"><img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=450&fit=crop" alt=""><div class="proj-body"><div class="cat">Network • Security</div><h3>Cluster VPN</h3><p>Site-to-site L2TP/PPTP/SSTP/IPSec/WireGuard, secure routing & uptime monitor.</p><div class="proj-tags"><span>L2TP</span><span>SSTP</span><span>WireGuard</span><span>IPSec</span></div></div></div>
+      <div class="proj"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=450&fit=crop" alt=""><div class="proj-body"><div class="cat">Governance</div><h3>Security Audit & SOP</h3><p>Audits, policy standardization & vendor coordination for consistent ops.</p><div class="proj-tags"><span>Audit</span><span>SOP</span><span>Policy</span><span>Vendor</span></div></div></div>
+      <div class="proj"><img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=600&h=450&fit=crop" alt=""><div class="proj-body"><div class="cat">Wireless</div><h3>Enterprise WiFi</h3><p>Captive portal, QoS & analytics for consistent guest experience.</p><div class="proj-tags"><span>UniFi</span><span>Captive</span><span>QoS</span><span>Analytics</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="eyebrow">Hubungi — bales cepat</div>
+    <h2>Ngobrol dulu<br>aja, gratis.</h2>
+    <p class="lead" style="margin-top:10px;color:var(--muted)">Nggak usah formal. Cerita aja hotelnya berapa kamar, kendalanya apa — nanti saya kasih saran jujur, butuh nggak butuh upgrade.</p>
+    <div class="contact">
+      <div class="side">
+        <div class="mini"><div class="ic">✉</div><div><b>offcrivaldi@gmail.com</b><span>Direct email</span></div></div>
+        <a href="https://wa.me/6285735038001" target="_blank" class="mini"><div class="ic">◐</div><div><b>+62 857-3503-8001</b><span>WhatsApp • IM3</span></div></a>
+        <div class="mini"><div class="ic">◎</div><div><b>Malang, Jawa Timur</b><span>Remote cluster support</span></div></div>
+        <div class="card" style="background:var(--accent);color:#000;border-color:var(--accent);transform:rotate(0.3deg)"><b>Gratis asesmen awal.</b><p style="color:rgba(0,0,0,0.6);margin-top:6px;font-size:12px">Chat aja dulu. Kalau memang nggak perlu ganti alat, saya bilang nggak perlu — nggak maksa jualan.</p><p style="margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:0.5">— Rivaldi, yang bales WA-nya langsung (IM3 0857-3503-8001)</p></div>
+      </div>
+      <form class="form" onsubmit="handleSubmit(event)">
+        <div class="field"><label>Nama</label><input id="name" placeholder="Nama lengkap Anda" required></div>
+        <div class="field"><label>Email</label><input id="email" type="email" placeholder="nama@perusahaan.com" required></div>
+        <div class="field"><label>Kebutuhan</label><input id="subject" placeholder="Audit Jaringan / Upgrade CCTV / Migrasi Server" required></div>
+        <div class="field"><label>Pesan</label><textarea id="message" rows="4" placeholder="Ceritakan kebutuhan, jumlah properti, dan kendala saat ini..." required></textarea></div>
+        <button class="btn">Kirim via WhatsApp →</button>
+        <p class="note">Form opens WhatsApp to +62 857-3503-8001. No data stored.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer container">
+  <div>
+    <p>© 2026 Rivaldi Wibowo — Malang • Citihub Hotel Management</p>
+    <p style="margin-top:4px;opacity:0.35;font-size:9px;text-transform:none;letter-spacing:0">Diketik sendiri di sela shift malam — maaf kalau ada typo. Foto & cerita asli, bukan AI.</p>
+  </div>
+  <div style="display:flex;gap:14px"><a href="mailto:offcrivaldi@gmail.com">Email</a><a href="https://www.linkedin.com/in/rivaldiwe/" target="_blank">LinkedIn</a><a href="https://github.com/offcrivaldi-hash" target="_blank">GitHub</a></div>
+</footer>
+
+<script>
+function toggleLang(){ location.href='index.html'; }
+function handleSubmit(e){
+  e.preventDefault();
+  var n=document.getElementById('name').value.trim(), em=document.getElementById('email').value.trim(), s=document.getElementById('subject').value.trim(), m=document.getElementById('message').value.trim();
+  if(!n||!em||!s||!m) return;
+  var t=encodeURIComponent('Halo Rivaldi 👋%0A%0ASaya '+n+' ('+em+')%0A%0AKebutuhan: '+s+'%0A%0APesan:%0A'+m+'%0A%0A---%0ADikirim dari rivaldi.id (overhaul)');
+  window.open('https://wa.me/6285735038001?text='+t,'_blank');
+}
+document.querySelectorAll('a[href^=\"#\"]').forEach(a=>a.addEventListener('click',e=>{var h=a.getAttribute('href');if(h.length>1){e.preventDefault();document.querySelector(h)?.scrollIntoView({behavior:'smooth'})}}));
+</script>
+</body>
+</html>
